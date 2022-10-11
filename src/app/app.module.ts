@@ -1,14 +1,21 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
 
+import { SharedModule } from './shared/shared.module';
+import { Page404Component } from './page-404/page-404.component';
+
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    Page404Component
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    AppRoutingModule,
+    SharedModule
   ],
   providers: [],
   bootstrap: [AppComponent]
