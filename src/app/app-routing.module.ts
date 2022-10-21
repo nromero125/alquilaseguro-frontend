@@ -30,7 +30,7 @@ const routes: Routes = [
   }, 
   {
     path:'**',
-    redirectTo:'page-404'
+    redirectTo:'auth'
   }
 ]
 

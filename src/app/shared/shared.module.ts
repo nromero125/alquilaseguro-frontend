@@ -6,11 +6,17 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { SharedRoutingModule } from './shared-routing.module';
 import { LayoutComponent } from './layout/layout.component';
+import { HeaderComponent } from './header/header.component';
+import { AsideComponent } from './aside/aside.component';
+import { SidebarComponent } from './sidebar/sidebar.component';
 
 
 @NgModule({
   declarations: [
-    LayoutComponent
+    LayoutComponent,
+    HeaderComponent,
+    AsideComponent,
+    SidebarComponent
   ],
   imports: [
     CommonModule,
