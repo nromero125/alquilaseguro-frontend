@@ -3,10 +3,13 @@ import { CommonModule } from '@angular/common';
 
 import { RentersRoutingModule } from './renters-routing.module';
 import { SharedModule } from '../shared/shared.module';
+import { RentersComponent } from './renters/renters.component';
 
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    RentersComponent
+  ],
   imports: [
     CommonModule,
     RentersRoutingModule,
