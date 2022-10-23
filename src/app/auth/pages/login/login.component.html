@@ -1,5 +1,39 @@
-<p>login works!</p>
-<button
-routerLink="/owners/component">
-login
-</button>
+<div class="d-flex justify-content-center">
+    <form>
+      <div class="block block-rounded">
+        <div class="block-header block-header-default">
+          <h3 class="block-title">Block Form</h3>
+          <div class="block-options">
+            <a class="btn-block-option" routerLink="/owners/component">
+              <i class="fa fa-fw fa-check opacity-50"></i> Login
+            </a>
+          </div>
+        </div>
+        <div class="block-content">
+          <div class="row justify-content-center py-sm-3 py-md-5">
+            <div class="col-sm-10 col-md-8">
+              <div class="mb-4">
+                <label class="form-label" for="block-form-username">Username</label>
+                <input type="text" class="form-control" id="block-form-username" name="block-form-username" placeholder="Enter your username..">
+              </div>
+              <div class="mb-4">
+                <label class="form-label" for="block-form-password">Password</label>
+                <input type="password" class="form-control" id="block-form-password" name="block-form-password" placeholder="Enter your password..">
+              </div>
+              <div class="mb-4">
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" value="" id="block-form1-remember-me" name="block-form1-remember-me">
+                  <label class="form-check-label" for="block-form1-remember-me">Remember Me?</label>
+                </div>
+              </div>
+              <div class="mb-4">
+                <div class="form-check">
+                    <a  routerLink="/auth/registration"> Registrate</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>

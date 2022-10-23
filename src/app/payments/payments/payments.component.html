@@ -1,0 +1,75 @@
+<div class="block">
+    <div class="block-header block-header-default">
+        <h3 class="block-title">Pagos</h3>
+        <div class="block-options">
+            <div class="block-options-item">
+                <button (click)="openReportModal()" type="button" class="btn btn-sm btn-success"
+                    data-bs-toggle="tooltip" title="Reportar Pago">
+                    Reportar <i class="far fa-flag"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="block-content">
+        <table class="table table-hover table-vcenter">
+            <thead>
+                <tr>
+                    <th class="text-center" style="width: 50px;"></th>
+                    <th>Fecha</th>
+                    <th>Monto</th>
+                    <th>Tipo</th>
+                    <th>Evidencia</th>
+                    <th class="text-center" style="width: 100px;">Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th class="text-center" scope="row">1</th>
+                    <td>Carol Ray</td>
+                    <td>10-23-2022</td>
+                    <td>Mora</td>
+                    <td><i class="far fa-file-pdf btn btn-outline-danger fw-bold fs-5"></i></td>
+                    <td class="text-center">
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-sm btn-outline-warning" data-bs-toggle="tooltip"
+                                title="Editar">
+                                <i class="fa fa-pencil-alt"></i>
+                            </button>
+                            <button type="button" class="btn btn-sm btn-outline-danger" data-bs-toggle="tooltip"
+                                title="Eliminar">
+                                <i class="fa fa-times"></i>
+                            </button>
+                            <button type="button" class="btn btn-sm btn-outline-info" data-bs-toggle="tooltip"
+                                title="Ver">
+                                <i class="fa fa-eye"></i>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <th class="text-center" scope="row">2</th>
+                    <td>Carol Ray</td>
+                    <td>10-23-2022</td>
+                    <td>A tiempo</td>
+                    <td><i class="far fa-file-pdf btn btn-outline-danger fw-bold fs-5"></i></td>
+                    <td class="text-center">
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-sm btn-outline-warning" data-bs-toggle="tooltip"
+                                title="Editar">
+                                <i class="fa fa-pencil-alt"></i>
+                            </button>
+                            <button type="button" class="btn btn-sm btn-outline-danger" data-bs-toggle="tooltip"
+                                title="Eliminar">
+                                <i class="fa fa-times"></i>
+                            </button>
+                            <button type="button" class="btn btn-sm btn-outline-info" data-bs-toggle="tooltip"
+                                title="Ver">
+                                <i class="fa fa-eye"></i>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

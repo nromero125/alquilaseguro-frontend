@@ -24,6 +24,14 @@ const routes: Routes = [
     path:'safe-rental',
     loadChildren: ()=> import('./safe-rental/safe-rental.module').then(m => m.SafeRentalModule)
   },
+   {
+    path:'payments',
+    loadChildren: ()=> import('./payments/payments.module').then(m => m.PaymentsModule)
+  },
+   {
+    path:'claims',
+    loadChildren: ()=> import('./claims/claims.module').then(m => m.ClaimsModule)
+  },
   {
     path:'page-404',
     component:Page404Component
