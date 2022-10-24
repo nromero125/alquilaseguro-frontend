@@ -57,7 +57,7 @@
                     </a>
                   </li>
                   <li class="list-inline-item">
-                    <a class="link-fx text-dual" href="" (click)="logout()">
+                    <a class="link-fx text-dual" routerLink="auth/login" (click)="logout()">
                       <i class="fa fa-sign-out-alt"></i>
                     </a>
                   </li>
@@ -85,8 +85,32 @@
                 </li>
                 <li class="nav-main-item">
                   <a class="nav-main-link" routerLink="/renters">
-                    <i class="nav-main-link-icon fa fa-building-user"></i>
+                    <i class="nav-main-link-icon fa fa-house-chimney-user"></i>
                     <span class="nav-main-link-name">Inquilinos</span>
+                  </a>
+                </li>
+                <li class="nav-main-item">
+                  <a class="nav-main-link" routerLink="/owners">
+                    <i class="nav-main-link-icon fa fa-building-user"></i>
+                    <span class="nav-main-link-name">Propietarios</span>
+                  </a>
+                </li>
+                <li class="nav-main-item">
+                  <a class="nav-main-link" routerLink="/owners">
+                    <i class="nav-main-link-icon fa fa-building"></i>
+                    <span class="nav-main-link-name">Propiedad</span>
+                  </a>
+                </li>
+                <li class="nav-main-item">
+                  <a class="nav-main-link" routerLink="/realty/list">
+                    <i class="nav-main-link-icon fa fa-house-flag"></i>
+                    <span class="nav-main-link-name">Inmobiliarias</span>
+                  </a>
+                </li>
+                <li class="nav-main-item">
+                  <a class="nav-main-link" routerLink="/owners">
+                    <i class="nav-main-link-icon fa fa-building-flag"></i>
+                    <span class="nav-main-link-name">Agentes Inmobiliarios</span>
                   </a>
                 </li>
 
