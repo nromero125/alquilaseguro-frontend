@@ -10,6 +10,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { PaymentsComponent } from './payments/payments/payments.component';
 import { ClaimsComponent } from './claims/claims/claims.component';
 import { ReportPaymenComponent } from './payments/reportPaymen/report-paymen/report-paymen.component';
+import { HttpClientModule } from '@angular/common/http';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -23,7 +25,9 @@ import { ReportPaymenComponent } from './payments/reportPaymen/report-paymen/rep
     BrowserModule,
     AppRoutingModule,
     SharedModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
