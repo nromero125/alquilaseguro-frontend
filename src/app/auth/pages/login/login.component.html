@@ -1,4 +1,4 @@
-<div class="d-flex justify-content-center align-items-center h-100">
+<div class="d-flex justify-content-center align-items-center h-100" id="login-container">
     <form  autocomplete="off" [formGroup]="frm"   class="w-500">
       <div class="block block-rounded w-100">
         <div class="block-header block-header-default">
@@ -19,7 +19,8 @@
                 <input type="password" 
                        class="form-control" 
                        formControlName="password"
-                       placeholder="Enter your password..">
+                       placeholder="Enter your password.."
+                       [autocomplete]="false">
               </div>
               <div class="mb-3">
                 <div class="form-check">

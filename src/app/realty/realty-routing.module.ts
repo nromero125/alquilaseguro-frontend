@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LayoutComponent } from '../shared/layout/layout.component';
+import { RealtyComponent } from './realty/realty.component';
 
 const routes: Routes = [
   {
@@ -8,8 +9,12 @@ const routes: Routes = [
     component:LayoutComponent,
     children:[
       {
+        path:'list',
+        component: RealtyComponent
+      },
+      {
         path:'**',
-        redirectTo:'prueba'
+        redirectTo:'list'
       }
     ]
   }
