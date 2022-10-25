@@ -1,6 +1,7 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { map, retry, tap } from 'rxjs/operators';
+import { Observable, of } from 'rxjs';
+import { catchError, map, retry, tap } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
 import { AuthResponce, User } from '../interfaces/interfaces';
 
@@ -10,14 +11,9 @@ import { AuthResponce, User } from '../interfaces/interfaces';
 export class AuthService {
 
   private baseUrl: string = environment.baseUrl;
-  private _user!: User;
+  private _user!: any;
 
   get user(){
-
-  let user = JSON.parse(localStorage.getItem('user')!);
-  
-  this._user = user
-
     return {...this._user};
   }
  
@@ -30,17 +26,42 @@ export class AuthService {
 
     return this.http.post<AuthResponce>( url , body )
             .pipe(
-              map(resp =>{
-                if(resp.hasOwnProperty('token')){
-                  localStorage.setItem('user', JSON.stringify(resp.user));
-                    this._user = resp.user  
+              tap( resp =>{
+                if(resp.token !== undefined){
+                  localStorage.setItem('token', resp.token);
+                  this._user  = resp.user
                 }
-              })
+              } ),
+              map(resp => resp),
+              catchError( err => of(err.error.message))
             )
 }
 
+
+
+  tokenValidation(): Observable<boolean>{
+
+    const url: string = `${this.baseUrl}/user`;
+    const headers = new HttpHeaders()
+      .set( 'Authorization', `Bearer ${localStorage.getItem('token') || ''}`);
+
+    return this.http.get(url, { headers })
+          .pipe(
+            map(resp =>{
+              this._user  = resp
+                return true
+            }),
+            catchError(err => of(false))
+          )
+  }
+
+
+
+
   logout(){
-  localStorage.removeItem('user');
-}
+
+    localStorage.removeItem('token');
+
+  }
 
 }

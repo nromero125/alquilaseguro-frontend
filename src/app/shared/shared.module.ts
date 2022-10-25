@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatDialogModule } from '@angular/material/dialog';
-
+import {MatPaginatorModule} from '@angular/material/paginator';
 
 import { RouterModule } from '@angular/router';
 import { SharedRoutingModule } from './shared-routing.module';
@@ -22,10 +22,12 @@ import { SidebarComponent } from './sidebar/sidebar.component';
     CommonModule,
     RouterModule,
     MatDialogModule,
-    SharedRoutingModule
+    SharedRoutingModule,
+    MatPaginatorModule
   ],
   exports:[
-    LayoutComponent
+    LayoutComponent,
+    MatPaginatorModule
   ]
 })
 export class SharedModule { }
