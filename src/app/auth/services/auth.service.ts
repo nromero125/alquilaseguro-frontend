@@ -13,55 +13,57 @@ export class AuthService {
   private baseUrl: string = environment.baseUrl;
   private _user!: any;
 
-  get user(){
-    return {...this._user};
+  get user() {
+    return { ...this._user };
   }
- 
-  constructor( private http: HttpClient) { }
 
-  login(email:string, password: string){
+  constructor(private http: HttpClient) { }
+
+  login(email: string, password: string) {
 
     const url: string = `${this.baseUrl}/auth/login`;
-    const body = {email, password};
+    const body = { email, password };
 
-    return this.http.post<AuthResponce>( url , body )
-            .pipe(
-              tap( resp =>{
-                if(resp.token !== undefined){
-                  localStorage.setItem('token', resp.token);
-                  this._user  = resp.user
-                }
-              } ),
-              map(resp => resp),
-              catchError( err => of(err.error.message))
-            )
-}
+    return this.http.post<AuthResponce>(url, body)
+      .pipe(
+        tap(resp => {
+          if (resp.token !== undefined) {
+            localStorage.setItem('token', resp.token);
+            this._user = resp.user
+            
+          }
+        }),
+        map(resp => resp),
+        catchError(err => of(err.error.message))
+      )
+  }
 
 
 
-  tokenValidation(): Observable<boolean>{
+  tokenValidation(): Observable<boolean> {
 
     const url: string = `${this.baseUrl}/user`;
     const headers = new HttpHeaders()
-      .set( 'Authorization', `Bearer ${localStorage.getItem('token') || ''}`);
+      .set('Authorization', `Bearer ${localStorage.getItem('token') || ''}`);
 
     return this.http.get(url, { headers })
-          .pipe(
-            map(resp =>{
-              this._user  = resp
-                return true
-            }),
-            catchError(err => of(false))
-          )
+      .pipe(
+        map(resp => {
+          this._user = resp
+          document.getElementById('page-container')?.classList.add('sidebar-o')
+          return true
+        }),
+        catchError(err => of(false))
+      )
   }
 
 
 
 
-  logout(){
+  logout() {
 
     localStorage.removeItem('token');
-
+    document.getElementById('page-container')?.classList.remove('sidebar-o')
   }
 
 }

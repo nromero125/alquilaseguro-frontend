@@ -13500,7 +13500,7 @@ small,
 @media (min-width: 992px) {
   .side-overlay-o.enable-page-overlay #page-overlay {
     transform: translateX(0);
-    opacity: 1;
+    opacity: 0.3;
   }
 }
 
