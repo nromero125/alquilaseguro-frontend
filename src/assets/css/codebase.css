@@ -13481,16 +13481,17 @@ small,
 
 #page-overlay {
   position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  content: "";
-  background: transparent;
-  z-index: 1033;
-  opacity: 0;
-  transition: opacity 0.26s cubic-bezier(0.47, 0, 0.745, 0.715), transform 0.26s cubic-bezier(0.47, 0, 0.745, 0.715);
-  transform: translateX(100%);
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    content: "";
+    background: rgba(0,0,0,.4);
+    background: linear-gradient(to right,rgba(0,0,0,0),rgba(0,0,0,.6));
+    z-index: 1033;
+    opacity: 0;
+    transition: opacity .26s cubic-bezier(.47,0,.745,.715),transform .26s cubic-bezier(.47,0,.745,.715);
+    transform: translateX(100%);
 }
 .sidebar-r #page-overlay {
   background: linear-gradient(to right, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0));

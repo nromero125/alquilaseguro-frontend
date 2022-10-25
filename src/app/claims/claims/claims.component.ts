@@ -10,6 +10,7 @@ export class ClaimsComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+
   }
 
 }

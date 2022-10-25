@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {  CanActivate, CanLoad, Router } from '@angular/router';
-import { Observable } from 'rxjs';
+import { Observable, tap } from 'rxjs';
 import { AuthService } from '../services/auth.service';
 
 @Injectable({
@@ -12,22 +12,29 @@ export class TokenValidatorGuard implements CanActivate, CanLoad {
                private router : Router){
 
   }
+  
 
   canActivate(): Observable<boolean> |  boolean {
-    if(this.authService.user.id){
-      return true;
-    }
-    this.router.navigateByUrl('/auth/login');
-    return false;
-   
+
+    return this.authService.tokenValidation()
+            .pipe(
+              tap(valid =>{
+                if(!valid){
+                  this.router.navigateByUrl('/auth');
+                }
+              })
+            )
   }
 
   canLoad(): Observable<boolean > | boolean{
-    if(this.authService.user.id){
-      return true;
-    }
-    this.router.navigateByUrl('/auth/login');
-    return false;
+    return this.authService.tokenValidation()
+    .pipe(
+      tap(valid =>{
+        if(!valid){
+          this.router.navigateByUrl('/auth');
+        }
+      })
+    )
   
   }
 }

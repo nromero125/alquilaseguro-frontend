@@ -10,26 +10,8 @@ const routes: Routes = [
     loadChildren: ()=> import('./auth/auth.module').then(m => m.AuthModule),
   },
   {
-    path:'realty',
-    loadChildren: ()=> import('./realty/realty.module').then(m => m.RealtyModule),
-    canActivate: [TokenValidatorGuard],
-    canLoad: [TokenValidatorGuard]
-  },
-  {
-    path:'renters',
-    loadChildren: ()=> import('./renters/renters.module').then(m => m.RentersModule),
-    canActivate: [TokenValidatorGuard],
-    canLoad: [TokenValidatorGuard]
-  }, 
-  {
     path:'owners',
     loadChildren: ()=> import('./owners/owners.module').then(m => m.OwnersModule),
-    canActivate: [TokenValidatorGuard],
-    canLoad: [TokenValidatorGuard]
-  },
-   {
-    path:'safe-rental',
-    loadChildren: ()=> import('./safe-rental/safe-rental.module').then(m => m.SafeRentalModule),
     canActivate: [TokenValidatorGuard],
     canLoad: [TokenValidatorGuard]
   },

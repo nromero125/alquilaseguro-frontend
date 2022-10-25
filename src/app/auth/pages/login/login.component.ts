@@ -34,15 +34,17 @@ export class LoginComponent implements OnInit {
   const {email, password} = this.frm.value
 
   this.authServices.login( email, password ).subscribe({
-    next:( value )=> {
-    this.router.navigateByUrl('/payments/list')
-    },
-    error:( err )=>{
-      Swal.fire({
+    next:( resp )=> {
+     if(resp.hasOwnProperty('token')){
+      this.router.navigateByUrl('/payments/list')
+      
+     }else{
+       Swal.fire({
         icon: 'error',
         title: 'Oops...',
-        text: err.error.message
+        text: resp
       });
+     }
     }
   })
   console.log(this.frm.value);

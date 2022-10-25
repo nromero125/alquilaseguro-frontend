@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 declare const init: any;
+
 @Component({
   selector: 'app-layout',
   templateUrl: './layout.component.html',
