@@ -94,3 +94,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .dialogdemoBasicUsage .dialog-demo-prerendered md-checkbox {
   margin-bottom: 0;
 }
+
+.main-content-boxed{
+  height: 100%;
+}
