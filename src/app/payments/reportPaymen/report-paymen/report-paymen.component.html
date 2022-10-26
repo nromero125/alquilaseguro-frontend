@@ -1,16 +1,24 @@
-<h1 mat-dialog-title>Reportar Pago</h1>
-<div mat-dialog-content>
-    <div class="mb-4">
-        <label class="form-label" for="example-text-input">Fecha</label>
-        <input type="date" class="form-control" id="example-text-input" name="example-text-input" placeholder="Text Input">
-      </div>
-    <div class="mb-4">
-        <label class="form-label" for="example-file-input">Comprobante</label>
-        <input class="form-control" type="file" id="example-file-input">
+<h1 mat-dialog-title class="modal-header">Reportar Pago</h1>
+<div mat-dialog-content class="mat-dialog-content">
+    <div class="py-3 px-3">
+        <div class="mb-4">
+            <label class="form-label" for="example-text-input">Fecha</label>
+            <input type="date" class="form-control" id="example-text-input" name="example-text-input" placeholder="Text Input">
+          </div>
+        <div class="mb-4">
+            <label class="form-label" for="example-file-input">Comprobante</label>
+            <input class="form-control" type="file" id="example-file-input">
+        </div>
     </div>
 
+
+
+
+
 </div>
-<div mat-dialog-Acciones>
-    <button class="btn btn-outline-danger">Cerrar</button>
-    <button class="btn btn-outline-success">Reportar</button>
+<div mat-dialog-Acciones class="mat-dialog-actions" align="end">
+        <button class="btn btn-outline-danger me-2">Cerrar</button>
+        <button class="btn btn-outline-success">Reportar</button>
+
+  
 </div>

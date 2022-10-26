@@ -11,10 +11,13 @@ import Swal from 'sweetalert2';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+  emailPattern: string = "^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$";
+
+
 
   frm: FormGroup = this.fb.group({
-    email:[,[Validators.required]],
-    password:[,[Validators.required]]
+    email:[,[Validators.required, Validators.pattern(this.emailPattern)]],
+    password:[,[Validators.required, Validators.minLength(6)]]
   })
 
   constructor( private fb : FormBuilder,
@@ -24,6 +27,14 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  validators(control : string ){
+    
+
+
+   return this.frm.get(control)?.invalid && this.frm.get(control)?.touched
+
+  }
+ 
 
   login(){
     if(this.frm.invalid){
@@ -47,7 +58,6 @@ export class LoginComponent implements OnInit {
      }
     }
   })
-  console.log(this.frm.value);
   }
 
 }
