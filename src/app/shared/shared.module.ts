@@ -9,6 +9,7 @@ import { LayoutComponent } from './layout/layout.component';
 import { HeaderComponent } from './header/header.component';
 import { AsideComponent } from './aside/aside.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
+import { PaginatorComponent } from './paginator/paginator.component';
 
 
 @NgModule({
@@ -16,18 +17,20 @@ import { SidebarComponent } from './sidebar/sidebar.component';
     LayoutComponent,
     HeaderComponent,
     AsideComponent,
-    SidebarComponent
+    SidebarComponent,
+    PaginatorComponent
   ],
   imports: [
     CommonModule,
     RouterModule,
     MatDialogModule,
     SharedRoutingModule,
-    MatPaginatorModule
+    MatPaginatorModule,
   ],
   exports:[
     LayoutComponent,
-    MatPaginatorModule
+    MatPaginatorModule,
+    PaginatorComponent
   ]
 })
 export class SharedModule { }
