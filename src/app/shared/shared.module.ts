@@ -11,6 +11,7 @@ import { AsideComponent } from './aside/aside.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { PaginatorComponent } from './paginator/paginator.component';
 import { ToastrModule } from 'ngx-toastr';
+import { StatusPipe } from '../pipes/status.pipe';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import { ToastrModule } from 'ngx-toastr';
     HeaderComponent,
     AsideComponent,
     SidebarComponent,
-    PaginatorComponent
+    PaginatorComponent,
+    StatusPipe
   ],
   imports: [
     CommonModule,
@@ -32,7 +34,8 @@ import { ToastrModule } from 'ngx-toastr';
   exports:[
     LayoutComponent,
     MatPaginatorModule,
-    PaginatorComponent
+    PaginatorComponent,
+    StatusPipe
   ]
 })
 export class SharedModule { }

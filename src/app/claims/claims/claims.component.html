@@ -13,60 +13,46 @@
         <div class="table-responsive">
         <table class="table table-hover table-vcenter">
             <thead>
-                <tr>
+                <tr >
                     <th class="text-center" style="width: 50px;"></th>
-                    <th>Name</th>
-                    <th class="text-center" style="width: 100px;">Acciones</th>
+                    <th>Fecha</th>
+                    <th>Monto a reclamar</th>
+                    <th>Estatus</th>
+                    <th>Propiedad</th>
+                    <th class="text-center" style="width: 100px;">Acciones</th> 
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <th class="text-center" scope="row">1</th>
-                    <td>Carol Ray</td>
-                    <td class="text-center">
+                <tr *ngFor=" let  claim of  paginatedClaimsList ">
+                    <th class="text-center" scope="row">{{claim.id}}</th>
+                    <td>{{claim.created_at | date:'dd/MM/yyyy'}}</td>
+                    <td>{{claim.amount_to_claim}}</td>
+                    <td>{{claim.status | status }}</td>
+                    <td>{{claim.property.name}}</td>
+                     <td class="text-center">
                         <div class="btn-group">
-                            <button type="button" class="btn btn-sm btn-outline-warning" data-bs-toggle="tooltip"
+                       <!--      <button type="button" class="btn btn-sm btn-outline-warning" data-bs-toggle="tooltip"
                                 title="Editar">
                                 <i class="fa fa-pencil-alt"></i>
                             </button>
                             <button type="button" class="btn btn-sm btn-outline-danger" data-bs-toggle="tooltip"
                                 title="Eliminar">
                                 <i class="fa fa-times"></i>
-                            </button>
+                            </button> -->
                             <button type="button" class="btn btn-sm btn-outline-info" data-bs-toggle="tooltip"
                                 title="Ver">
                                 <i class="fa fa-eye"></i>
                             </button>
                         </div>
-                    </td>
+                    </td> 
                 </tr>
-                <tr>
-                    <th class="text-center" scope="row">2</th>
-                    <td>Wayne Garcia</td>
-                    <td class="text-center">
-                        <div class="btn-group">
-                            <button type="button" class="btn btn-sm btn-outline-warning" data-bs-toggle="tooltip"
-                                title="Editar">
-                                <i class="fa fa-pencil-alt"></i>
-                            </button>
-                            <button type="button" class="btn btn-sm btn-outline-danger" data-bs-toggle="tooltip"
-                                title="Eliminar">
-                                <i class="fa fa-times"></i>
-                            </button>
-                            <button type="button" class="btn btn-sm btn-outline-info" data-bs-toggle="tooltip"
-                                title="Ver">
-                                <i class="fa fa-eye"></i>
-                            </button>
-                        </div>
-                    </td>
-                </tr>
+             
             </tbody>
         </table>
         </div>
-        <mat-paginator [length]="100"
-        [pageSize]="10"
-        [pageSizeOptions]="[5, 10, 25, 100]"
-        aria-label="Select page">
-      </mat-paginator>
+        <app-paginator 
+        [records]="claimsList"
+        (sendPaginatedRecords)="getPaginatedRecords($event)"
+        ></app-paginator>
     </div>
 </div>
