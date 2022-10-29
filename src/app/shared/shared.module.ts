@@ -10,6 +10,7 @@ import { HeaderComponent } from './header/header.component';
 import { AsideComponent } from './aside/aside.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { PaginatorComponent } from './paginator/paginator.component';
+import { StatusPipe } from '../pipes/status.pipe';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { PaginatorComponent } from './paginator/paginator.component';
     HeaderComponent,
     AsideComponent,
     SidebarComponent,
-    PaginatorComponent
+    PaginatorComponent,
+    StatusPipe
   ],
   imports: [
     CommonModule,
@@ -30,7 +32,8 @@ import { PaginatorComponent } from './paginator/paginator.component';
   exports:[
     LayoutComponent,
     MatPaginatorModule,
-    PaginatorComponent
+    PaginatorComponent,
+    StatusPipe
   ]
 })
 export class SharedModule { }

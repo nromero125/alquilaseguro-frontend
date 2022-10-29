@@ -14,57 +14,32 @@
         <table class="table table-hover table-vcenter">
             <thead>
                 <tr>
-                    <th class="text-center" style="width: 50px;"></th>
-                    <th>Nombre</th>
-                    <th>Identificación</th>
-                    <th>Teléfono</th>
-                    <th>Propiedad</th>
-                    <th>Cuenta de Ahorros</th>
-                    <th class="text-center" style="width: 100px;">Acciones</th>
+                    <th class="text-center" style="width: 50px;">ID</th>
+                    <th>Nombre Inquilino</th>
+                    <th>Dirección</th>
+                    <th>Nombre del Dueño</th>
+                    <th>Monto alquiler</th>
+  <th class="text-center" style="width: 100px;">Acciones</th>
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <th class="text-center" scope="row">1</th>
-                    <td>Carol Ray</td>
-                    <td>Identificación</td>
-                    <td>Teléfono</td>
-                    <td>Propiedad</td>
-                    <td>Cuenta de Ahorros</td>
-                    <td class="text-center">
+                <tr *ngFor="let property of paginatedPropertyList">
+                    <th class="text-center" scope="row">{{property.id}}</th>
+
+                    <td>{{property.tenant.firstname}} {{property.tenant.lastname}}</td>
+                    <td>{{property.address}}</td>
+                    <td>{{property.owner.firstname}} {{property.owner.lastname}}</td>
+                    <td>{{property.monthly_payment}}</td>
+             <td class="text-center">
                         <div class="btn-group">
-                            <button type="button" class="btn btn-sm btn-outline-warning" data-bs-toggle="tooltip"
+                    <!--         <button type="button" class="btn btn-sm btn-outline-warning" data-bs-toggle="tooltip"
                                 title="Editar">
                                 <i class="fa fa-pencil-alt"></i>
                             </button>
                             <button type="button" class="btn btn-sm btn-outline-danger" data-bs-toggle="tooltip"
                                 title="Eliminar">
                                 <i class="fa fa-times"></i>
-                            </button>
-                            <button type="button" class="btn btn-sm btn-outline-info" data-bs-toggle="tooltip"
-                                title="Ver">
-                                <i class="fa fa-eye"></i>
-                            </button>
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <th class="text-center" scope="row">2</th>
-                    <td>Wayne Garcia</td>
-                    <td>Identificación</td>
-                    <td>Teléfono</td>
-                    <td>Propiedad</td>
-                    <td>Cuenta de Ahorros</td>
-                    <td class="text-center">
-                        <div class="btn-group">
-                            <button type="button" class="btn btn-sm btn-outline-warning" data-bs-toggle="tooltip"
-                                title="Editar">
-                                <i class="fa fa-pencil-alt"></i>
-                            </button>
-                            <button type="button" class="btn btn-sm btn-outline-danger" data-bs-toggle="tooltip"
-                                title="Eliminar">
-                                <i class="fa fa-times"></i>
-                            </button>
+                            </button> -->
                             <button type="button" class="btn btn-sm btn-outline-info" data-bs-toggle="tooltip"
                                 title="Ver">
                                 <i class="fa fa-eye"></i>
@@ -76,10 +51,9 @@
          
         </table>
         </div>
-        <mat-paginator [length]="100"
-        [pageSize]="10"
-        [pageSizeOptions]="[5, 10, 25, 100]"
-        aria-label="Select page">
-      </mat-paginator>
+        <app-paginator 
+        [records]="propertiesList"
+        (sendPaginatedRecords)="getPaginatedRecords($event)"
+        ></app-paginator>
     </div>
 </div>

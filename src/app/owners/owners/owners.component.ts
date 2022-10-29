@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { BrokersService } from 'src/app/services/brokers.service';
 @Component({
   selector: 'app-owners',
   templateUrl: './owners.component.html',
@@ -7,9 +7,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class OwnersComponent implements OnInit {
 
-  constructor() { }
+  
+  propertiesList:any []=[];
+  paginatedPropertyList:any []=[];
+
+  constructor(private brokerService:BrokersService) { }
 
   ngOnInit(): void {
+    this.getClaimsData()
   }
 
+  getClaimsData(){
+    this.brokerService.getTenantProperties().subscribe({
+      next: (res: any) => {
+        this.propertiesList= res.data
+      }
+    })
+  }
+
+
+  getPaginatedRecords(paginatedRecords: any) {
+    this.paginatedPropertyList = paginatedRecords
+  }
 }
