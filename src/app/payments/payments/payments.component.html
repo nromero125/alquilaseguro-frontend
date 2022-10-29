@@ -12,25 +12,32 @@
     </div>
     <div class="block-content">
         <div class="table-responsive">
-        <table class="table table-hover table-vcenter">
-            <thead>
-                <tr>
-                    <th class="text-center" style="width: 50px;"></th>
-                    <th>Fecha</th>
-                    <th>Monto</th>
-                    <th>Tipo</th>
-                    <th>Evidencia</th>
-                    <th class="text-center" style="width: 100px;">Acciones</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor="let payment of paginatedPaymentsList">
-                    <th class="text-center" scope="row">{{payment.id}}</th>
-                    <td>{{payment.paid_at | date:'dd/mm/yyyy'}}</td>
-                    <td>{{payment.amount}}</td>
-                    <td>{{payment.payment_type}}</td>
-                    <td><i class="far fa-file-pdf btn btn-outline-danger fw-bold fs-5"></i></td>
-                    <td class="text-center">
+            <table class="table table-hover table-vcenter">
+                <thead>
+                    <tr>
+                        <th class="text-center" style="width: 50px;"></th>
+                        <th>Fecha</th>
+                        <th>Monto</th>
+                        <th>Tipo</th>
+                        <th>Propiedad</th>
+                        <th>Evidencia</th>
+                        <!-- <th class="text-center" style="width: 100px;">Acciones</th> -->
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let payment of paginatedPaymentsList">
+                        <th class="text-center" scope="row">{{payment.id}}</th>
+                        <td>{{payment.paid_at | date:'dd/mm/yyyy'}}</td>
+                        <td>{{payment.amount}}</td>
+                        <td>{{payment.payment_type}}</td>
+                        <td>{{payment.paid_property || 'N/A'}}</td>
+                        <td>
+                            <button (click)="setUrl(payment.media[0]?.original_url)" data-bs-toggle="tooltip" title="Ver Comprobante" class="btn btn-outline-danger">
+                                <i 
+                                    class="far fa-file-pdf  fw-bold fs-5"></i>
+                            </button>
+                        </td>
+                        <!-- <td class="text-center">
                         <div class="btn-group">
                             <button type="button" class="btn btn-sm btn-outline-warning" data-bs-toggle="tooltip"
                                 title="Editar">
@@ -45,16 +52,12 @@
                                 <i class="fa fa-eye"></i>
                             </button>
                         </div>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-        <!-- <mat-paginator [length]="paymentsList.length"
-        [pageSize]="10"
-        [pageSizeOptions]="[5, 10, 25, 100]"
-        aria-label="Selecciona pagina">
-      </mat-paginator> -->
-      <app-paginator [records]="paymentsList" (sendPaginatedRecords)="getPaginatedRecords($event)"></app-paginator>
+                    </td> -->
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <app-paginator [records]="paymentsList" (sendPaginatedRecords)="getPaginatedRecords($event)"></app-paginator>
     </div>
 </div>

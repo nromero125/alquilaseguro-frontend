@@ -1,5 +1,7 @@
 import { ChangeDetectorRef, Component, OnInit, AfterContentInit, AfterContentChecked } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { DomSanitizer } from '@angular/platform-browser';
+import { ToastrService } from 'ngx-toastr';
 import { PaymentsService } from 'src/app/services/payments.service';
 import { ReportPaymenComponent } from '../reportPaymen/report-paymen/report-paymen.component';
 
@@ -8,15 +10,19 @@ import { ReportPaymenComponent } from '../reportPaymen/report-paymen/report-paym
   templateUrl: './payments.component.html',
   styleUrls: ['./payments.component.css']
 })
-export class PaymentsComponent implements OnInit, AfterContentInit,AfterContentChecked {
+export class PaymentsComponent implements OnInit, AfterContentInit, AfterContentChecked {
   paymentsList: any[] = []
   paginatedPaymentsList: any[] = []
+  fileUrl: string = ''
 
-  constructor(private _dialog: MatDialog, private _paymentsService: PaymentsService, private _changeDet: ChangeDetectorRef) { }
+  constructor(private _dialog: MatDialog,
+    private _paymentsService: PaymentsService,
+    private _changeDet: ChangeDetectorRef,
+    private sanitizer: DomSanitizer,
+    private _toastService: ToastrService) { }
 
   ngOnInit(): void {
     this.getData()
-
   }
   ngAfterViewChecked(): void {
     this._changeDet.detectChanges()
@@ -41,8 +47,31 @@ export class PaymentsComponent implements OnInit, AfterContentInit,AfterContentC
     this._dialog.open(ReportPaymenComponent,
       {
         width: '500px'
+      }).afterClosed().subscribe({
+        next: (res: any) => {
+          if (res) {
+            this.getData()
+          }
+        },
+        error: (err: any) => {
+
+        }
       })
   }
+
+  transform(url: any) {
+    return this.sanitizer.bypassSecurityTrustResourceUrl(url);
+  }
+
+  setUrl(url: string) {
+    if (!url) {
+      this._toastService.warning('No existe evidencia para mostrar')
+      return
+    }
+    this.fileUrl = url
+    window.open(url, '_blank');
+  }
+
 
 
   getPaginatedRecords(paginatedRecords: any) {

@@ -10,6 +10,7 @@ import { HeaderComponent } from './header/header.component';
 import { AsideComponent } from './aside/aside.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { PaginatorComponent } from './paginator/paginator.component';
+import { ToastrModule } from 'ngx-toastr';
 
 
 @NgModule({
@@ -26,6 +27,7 @@ import { PaginatorComponent } from './paginator/paginator.component';
     MatDialogModule,
     SharedRoutingModule,
     MatPaginatorModule,
+    ToastrModule.forRoot(),
   ],
   exports:[
     LayoutComponent,

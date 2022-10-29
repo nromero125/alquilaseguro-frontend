@@ -15,6 +15,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { PaymentsComponent } from './payments/payments/payments.component';
 import { InterceptorService } from './services/interceptor.service';
+import { NgxMaskModule } from 'ngx-mask';
+import { CurrencyMaskModule } from 'ng2-currency-mask';
 
 @NgModule({
   declarations: [
@@ -31,7 +33,9 @@ import { InterceptorService } from './services/interceptor.service';
     BrowserAnimationsModule,
     HttpClientModule,
     ReactiveFormsModule,
-    CommonModule
+    CommonModule,
+    NgxMaskModule.forRoot(),
+    CurrencyMaskModule,
   ],
   providers: [{ provide: HTTP_INTERCEPTORS, useClass: InterceptorService, multi: true }],
   bootstrap: [AppComponent]

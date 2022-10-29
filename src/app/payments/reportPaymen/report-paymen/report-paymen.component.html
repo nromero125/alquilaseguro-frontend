@@ -1,14 +1,25 @@
 <h1 mat-dialog-title class="modal-header">Reportar Pago</h1>
 <div mat-dialog-content class="mat-dialog-content">
     <div class="py-3 px-3">
-        <div class="mb-4">
-            <label class="form-label" for="example-text-input">Fecha</label>
-            <input type="date" class="form-control" id="example-text-input" name="example-text-input" placeholder="Text Input">
-          </div>
-        <div class="mb-4">
-            <label class="form-label" for="example-file-input">Comprobante</label>
-            <input class="form-control" type="file" id="example-file-input">
-        </div>
+        <form [formGroup]="paymentForm">
+            <div class="mb-4">
+                <label class="form-label" for="example-text-input">Cantidad a Pagar <span
+                        class="text-danger text-monospace legend">*</span></label>
+                <input placeholder="0.00" type="text" currencyMask [options]="{precision:2}" formControlName="amount"
+                    class="form-control" id="example-text-input">
+            </div>
+            <div class="mb-4">
+                <label class="form-label" for="example-text-input">Fecha <span
+                        class="text-danger text-monospace legend">*</span></label>
+                <input type="date" formControlName="date" class="form-control" id="example-text-input">
+            </div>
+            <div class="mb-4">
+                <label class="form-label" for="example-file-input">Comprobante <span
+                        class="text-danger text-monospace legend">*</span></label>
+                <input (change)="onImageSelected($event.target)" class="form-control" type="file"
+                    id="example-file-input">
+            </div>
+        </form>
     </div>
 
 
@@ -17,8 +28,8 @@
 
 </div>
 <div mat-dialog-Acciones class="mat-dialog-actions" align="end">
-        <button class="btn btn-outline-danger me-2">Cerrar</button>
-        <button class="btn btn-outline-success">Reportar</button>
+    <button (click)="closeModal(false)" class="btn btn-danger me-2">Cerrar</button>
+    <button [disabled]="paymentForm.invalid" (click)="reportPayment()" class="btn btn-success">Reportar</button>
 
-  
+
 </div>

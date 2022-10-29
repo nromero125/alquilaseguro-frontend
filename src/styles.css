@@ -178,3 +178,10 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   height: 100%;
  
 }
+
+.active-btn i {color: #fff!important;}
+.active-btn {
+    color: #fff!important;
+    background-color: #f59e0b!important;
+    border-color: #f59e0b!important;
+}
