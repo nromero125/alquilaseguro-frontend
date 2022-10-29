@@ -57,11 +57,7 @@ export class AuthService {
       )
   }
 
-
-
-
   logout() {
-
     localStorage.removeItem('token');
     document.getElementById('page-container')?.classList.remove('sidebar-o')
   }
