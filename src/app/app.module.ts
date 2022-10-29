@@ -14,6 +14,7 @@ import { InterceptorService } from './services/interceptor.service';
 import { NgxMaskModule } from 'ngx-mask';
 import { CurrencyMaskModule } from 'ng2-currency-mask';
 import { StatusPipe } from './pipes/status.pipe';
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { StatusPipe } from './pipes/status.pipe';
     CommonModule,
     NgxMaskModule.forRoot(),
     CurrencyMaskModule,
+    ToastrModule.forRoot(),
   ],
   
   providers: [{ provide: HTTP_INTERCEPTORS, useClass: InterceptorService, multi: true }],

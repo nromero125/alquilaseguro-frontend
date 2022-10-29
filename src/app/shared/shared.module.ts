@@ -10,7 +10,6 @@ import { HeaderComponent } from './header/header.component';
 import { AsideComponent } from './aside/aside.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { PaginatorComponent } from './paginator/paginator.component';
-import { ToastrModule } from 'ngx-toastr';
 import { StatusPipe } from '../pipes/status.pipe';
 
 
@@ -29,7 +28,6 @@ import { StatusPipe } from '../pipes/status.pipe';
     MatDialogModule,
     SharedRoutingModule,
     MatPaginatorModule,
-    ToastrModule.forRoot(),
   ],
   exports:[
     LayoutComponent,

@@ -65,7 +65,7 @@ export class PaymentsComponent implements OnInit, AfterContentInit, AfterContent
 
   setUrl(url: string) {
     if (!url) {
-      this._toastService.warning('No existe evidencia para mostrar')
+      this._toastService.warning('No existe un comprobante para mostrar')
       return
     }
     this.fileUrl = url
