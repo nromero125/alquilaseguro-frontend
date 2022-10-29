@@ -13,5 +13,9 @@ export class PaymentsService {
     return this._http.get(`${this.apiUrl}/tenant/payments`)
   }
 
+  createPayment(payment:any){
+    return this._http.post(`${this.apiUrl}/tenant/payments/create`,payment)
+  }
+
 
 }
