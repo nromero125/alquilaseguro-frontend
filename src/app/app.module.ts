@@ -13,13 +13,14 @@ import { CommonModule } from '@angular/common';
 import { InterceptorService } from './services/interceptor.service';
 import { NgxMaskModule } from 'ngx-mask';
 import { CurrencyMaskModule } from 'ng2-currency-mask';
-import { StatusPipe } from './pipes/status.pipe';
 import { ToastrModule } from 'ngx-toastr';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     Page404Component,
+ 
   ],
   imports: [
     BrowserModule,
