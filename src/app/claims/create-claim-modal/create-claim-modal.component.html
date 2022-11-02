@@ -14,9 +14,9 @@
                     class="form-control" id="example-text-input">
             </div>
             <div class="mb-4">
-                <label class="form-label" for="example-file-input">Comprobante <span
+                <label class="form-label" for="example-file-input">Evidencias <span
                         class="text-danger text-monospace legend">*</span></label>
-                <input (change)="onImageSelected($event.target)" class="form-control" [multiple]="true" type="file"
+                <input (change)="onImageSelected($event.target)" formControlName="voucher" class="form-control" [multiple]="true" type="file"
                     id="example-file-input">
             </div>
         </form>

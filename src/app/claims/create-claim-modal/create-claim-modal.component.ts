@@ -34,11 +34,24 @@ export class CreateClaimModalComponent implements OnInit {
     console.log(this.autService.user)
   }
 
-  onImageSelected(image: any) {
-    let imagesList: any[] = []
-    imagesList.push(image.files)
-    this.claimForm.get('voucher')?.setValue(image.files[0])
-    console.log(this.claimForm.get('voucher')?.value)
+  onImageSelected(images: any) {
+    if (images.files.length > 6) {
+      this._toastService.warning('Solo puede seleccionar un maximo de 6 imagenes')
+      this.claimForm.get('voucher')?.reset()
+      return
+    }
+    let imagesList = Object.entries(images.files)
+    let evidences = imagesList.map((images: any) => {
+      return images[1]
+    })
+    evidences.forEach(evidence => {
+      if (evidence.type !== "image/webp") {
+        this._toastService.warning('Este campo solo acepta imagenes')
+        this.claimForm.get('voucher')?.reset()
+        return
+      }
+      this.claimDTO.append('evidence[]', evidence)
+    });
   }
 
   closeModal(created: boolean) {
@@ -52,14 +65,14 @@ export class CreateClaimModalComponent implements OnInit {
     }
     this.claimDTO.append('description', this.claimForm.get('description')?.value)
     this.claimDTO.append('amount_to_claim', this.claimForm.get('amount')?.value)
-    this.claimDTO.append('evidence', this.claimForm.get('voucher')?.value)
+
     this.claimDTO.append('property_id', '1')
 
     this._claimsService.createClaim(this.claimDTO).subscribe({
       next: (res: any) => {
         this.claimDTO = new FormData()
         this._toastService.success('Reclamación creada satisfactoriamente')
-        // this.closeModal(true)
+        this.closeModal(true)
       },
       error: (err: any) => {
         this.claimDTO = new FormData()

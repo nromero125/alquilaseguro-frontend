@@ -14,24 +14,33 @@ export class ClaimsComponent implements OnInit {
 
   constructor(private claimsServices: ClaimsService, private _dialog: MatDialog) { }
 
-  claimsList:Claims []=[];
-  paginatedClaimsList:Claims []=[];
+  claimsList: Claims[] = [];
+  paginatedClaimsList: Claims[] = [];
 
 
   ngOnInit(): void {
     this.getClaimsData()
   }
 
-  getClaimsData(){
+  getClaimsData() {
     this.claimsServices.getTenantClaims().subscribe({
       next: (res: any) => {
-        this.claimsList= res.data
+        this.claimsList = res.data
       }
     })
   }
 
-  openCreationModal(){
-    this._dialog.open(CreateClaimModalComponent)
+  openCreationModal() {
+    this._dialog.open(CreateClaimModalComponent).afterClosed().subscribe({
+      next: (res: any) => {
+        if (res) {
+          this.getClaimsData()
+        }
+      },
+      error: (err: any) => {
+
+      }
+    })
   }
 
 

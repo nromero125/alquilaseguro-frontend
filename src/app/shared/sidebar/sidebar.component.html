@@ -70,7 +70,7 @@
             <div class="content-side content-side-full">
               <ul class="nav-main">
                 <li class="nav-main-heading"></li>
-                <li class="nav-main-item">
+                <li  *ngIf="user.user_type === 4" class="nav-main-item">
                   <a class="nav-main-link"  routerLinkActive="active-btn" routerLink="/payments/list">
                     <i class="nav-main-link-icon fa fa-money-bill-transfer"></i>
                     <span class="nav-main-link-name">Pagos</span>
