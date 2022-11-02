@@ -1,21 +1,93 @@
-<div class="timeline-event-block">
-    <p class="fw-semibold">+ 3 New photos</p>
-    <p>Austria Travel Guide was updated with new images</p>
-    <div class="row items-push js-gallery img-fluid-100 js-gallery-enabled">
-      <div class="col-sm-6 col-xl-3">
-        <a class="img-link img-link-zoom-in img-lightbox" href="assets/media/photos/photo2@2x.jpg">
-          <img class="img-fluid" src="assets/media/photos/photo2.jpg" alt="">
-        </a>
+<div class="row">
+  <div class="col-md-6">
+    <div class="block">
+      <div class="block-header block-header-default">
+        <h3 class="block-title">Detalle de Reclamación</h3>
       </div>
-      <div class="col-sm-6 col-xl-3">
-        <a class="img-link img-link-zoom-in img-lightbox" href="assets/media/photos/photo8@2x.jpg">
-          <img class="img-fluid" src="assets/media/photos/photo8.jpg" alt="">
-        </a>
+      <div class="block-content">
+        <div class="row">
+          <div class="col-md-4">
+            <label class="form-label label-inline" for="description">Descripción:</label>
+            <p id="description">{{claimDetails?.description}}</p>
+
+          </div>
+          <div class="col-md-4">
+            <label class="form-label label-inline" for="amount_to_claim">Cantidad Reclamada:</label>
+            <p id="amount_to_claim">{{claimDetails?.amount_to_claim | currency}}</p>
+
+          </div>
+          <div class="col-md-4">
+            <label class="form-label label-inline" for="createdDate">Fecha de Creación:</label>
+            <p id="createdDate">{{claimDetails?.created_at | date:'dd/MM/yyyy'}}</p>
+
+          </div>
+        </div>
       </div>
-      <div class="col-sm-6 col-xl-3">
-        <a class="img-link img-link-zoom-in img-lightbox" href="assets/media/photos/photo9@2x.jpg">
-          <img class="img-fluid" src="assets/media/photos/photo9.jpg" alt="">
+    </div>
+  </div>
+
+  <div class="col-md-6">
+    <div class="block">
+      <div class="block-header block-header-default">
+        <h3 class="block-title">Detalle de propiedad</h3>
+      </div>
+      <div class="block-content">
+        <div class="row">
+          <div class="col-md-6">
+            <label class="form-label label-inline" for="address">Dirección:</label>
+            <p id="address">{{claimDetails?.property.address}}</p>
+          </div>
+          <div class="col-md-6">
+            <label class="form-label label-inline" for="propertyDescription">Descripción:</label>
+            <p id="propertyDescription">{{claimDetails?.property.description}}</p>
+          </div>
+          <div class="col-md-6">
+            <label class="form-label label-inline" for="payment_due_date">Fecha de Pago:</label>
+            <p id="payment_due_date">{{claimDetails?.property.payment_due_date | date: 'dd/MM/yyyy'}}</p>
+          </div>
+          <div class="col-md-6">
+            <label class="form-label label-inline" for="monthly_payment">Monto de Pago Mensual:</label>
+            <p id="monthly_payment">{{claimDetails?.property.monthly_payment | currency}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-6">
+    <div class="block">
+      <div class="block-header block-header-default">
+        <h3 class="block-title">Detalle de usuario</h3>
+      </div>
+      <div class="block-content">
+        <div class="row">
+          <div class="col-md-4">
+            <label class="form-label label-inline" for="createdDate">Nombre:</label>
+            <p id="createdDate">{{claimDetails?.user.name}}</p>
+          </div>
+
+          <div class="col-md-4">
+            <label class="form-label label-inline" for="createdDate">Correo Electrónico:</label>
+            <p id="createdDate">{{claimDetails?.user.email}}</p>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="block" *ngIf="claimDetails?.media.length > 0">
+  <div class="block-header block-header-default">
+    <h3 class="block-title">Detalle de Media</h3>
+  </div>
+  <div class="block-content">
+    <div class="row items-push js-gallery img-fluid-100">
+      <div class="col-md-6 col-lg-4 col-xl-3 animated fadeIn" *ngFor="let image of claimDetails?.media">
+        <a class="img-link img-link-zoom-in img-thumb img-lightbox">
+          <img class="img-fluid" src="{{image?.original_url}}" alt="">
         </a>
       </div>
     </div>
   </div>
+</div>

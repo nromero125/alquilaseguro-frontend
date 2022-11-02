@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { Claims } from 'src/app/interfaces/claims-interfaces';
 import { ClaimsService } from 'src/app/services/claims.service';
+import { CreateClaimModalComponent } from '../create-claim-modal/create-claim-modal.component';
 
 
 @Component({
@@ -10,7 +12,7 @@ import { ClaimsService } from 'src/app/services/claims.service';
 })
 export class ClaimsComponent implements OnInit {
 
-  constructor(private claimsServices: ClaimsService) { }
+  constructor(private claimsServices: ClaimsService, private _dialog: MatDialog) { }
 
   claimsList:Claims []=[];
   paginatedClaimsList:Claims []=[];
@@ -26,6 +28,10 @@ export class ClaimsComponent implements OnInit {
         this.claimsList= res.data
       }
     })
+  }
+
+  openCreationModal(){
+    this._dialog.open(CreateClaimModalComponent)
   }
 
 
