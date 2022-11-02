@@ -1,0 +1,35 @@
+<h1 mat-dialog-title class="modal-header">Crear Reclamación</h1>
+<div mat-dialog-content class="mat-dialog-content">
+    <div class="py-3 px-3">
+        <form [formGroup]="claimForm">
+            <div class="mb-4">
+                <label class="form-label" for="example-text-input">Descripción <span
+                        class="text-danger text-monospace legend">*</span></label>
+                <input type="text" formControlName="description" class="form-control" id="example-text-input">
+            </div>
+            <div class="mb-4">
+                <label class="form-label" for="example-text-input">Cantidad a Pagar <span
+                        class="text-danger text-monospace legend">*</span></label>
+                <input placeholder="0.00" type="text" currencyMask [options]="{precision:2}" formControlName="amount"
+                    class="form-control" id="example-text-input">
+            </div>
+            <div class="mb-4">
+                <label class="form-label" for="example-file-input">Evidencias <span
+                        class="text-danger text-monospace legend">*</span></label>
+                <input (change)="onImageSelected($event.target)" formControlName="voucher" class="form-control" [multiple]="true" type="file"
+                    id="example-file-input">
+            </div>
+        </form>
+    </div>
+
+
+
+
+
+</div>
+<div mat-dialog-Acciones class="mat-dialog-actions" align="end">
+    <button (click)="closeModal(false)" class="btn btn-danger me-2">Cerrar</button>
+    <button [disabled]="claimForm.invalid" (click)="createClaim()" class="btn btn-success">Reportar</button>
+
+
+</div>

@@ -17,6 +17,14 @@ export class ClaimsService {
     return this._http.get<Claims>(`${this.apiUrl}/tenant/claims`)
   }
 
+  getDetails(claimId:number):Observable<Claims>{
+    return this._http.get<Claims>(`${this.apiUrl}/claims/${claimId}`)
+  }
+
+  createClaim(claimModel:FormData){
+    return this._http.post(`${this.apiUrl}/claims`,claimModel)
+  }
+
 
 }
 

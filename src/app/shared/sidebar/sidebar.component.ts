@@ -9,21 +9,21 @@ import { AuthService } from 'src/app/auth/services/auth.service';
 })
 export class SidebarComponent implements OnInit {
 
-  get user(){
+  get user() {
     return this.authServices.user
   }
 
-  constructor( private router: Router,
-              private authServices: AuthService ) { }
+  constructor(private router: Router,
+    private authServices: AuthService) { }
 
   ngOnInit(): void {
   }
 
 
-  logout(){
+  logout() {
     this.router.navigateByUrl('/auth/login')
     this.authServices.logout();
   }
-  
+
 
 }

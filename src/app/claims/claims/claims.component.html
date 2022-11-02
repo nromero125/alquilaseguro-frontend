@@ -3,7 +3,7 @@
         <h3 class="block-title">Reclamaciones</h3>
         <div class="block-options">
             <div class="block-options-item">
-                <button type="button" class="btn btn-sm btn-success" data-bs-toggle="tooltip" title="Nueva Reclamación">
+                <button type="button" (click)="openCreationModal()" class="btn btn-sm btn-success" data-bs-toggle="tooltip" title="Nueva Reclamación">
                     Agregar <i class="far fa-plus  fw-bold"></i>
                 </button>
             </div>
@@ -39,10 +39,10 @@
                                 title="Eliminar">
                                 <i class="fa fa-times"></i>
                             </button> -->
-                            <a routerLink="/claims/details/2" type="button" class="btn btn-sm btn-outline-info" data-bs-toggle="tooltip"
+                            <button routerLink="/claims/details/{{claim.id}}" type="button" class="btn btn-sm btn-outline-info js-bs-tooltip-enabled" data-bs-toggle="tooltip"
                                 title="Ver">
                                 <i class="fa fa-eye"></i>
-                            </a>
+                            </button>
                         </div>
                     </td> 
                 </tr>
