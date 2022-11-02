@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Claims } from 'src/app/interfaces/claims-interfaces';
 import { ClaimsService } from 'src/app/services/claims.service';
 
+
 @Component({
   selector: 'app-claims',
   templateUrl: './claims.component.html',

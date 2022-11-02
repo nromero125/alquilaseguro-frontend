@@ -2,11 +2,11 @@
     <div class="block-header block-header-default">
         <h3 class="block-title">Propiedades</h3>
         <div class="block-options">
-            <div class="block-options-item">
+    <!--         <div class="block-options-item">
                 <button type="button" class="btn btn-sm btn-success" data-bs-toggle="tooltip" title="Nueva Propiedad">
                     Agregar <i class="far fa-plus  fw-bold"></i>
                 </button>
-            </div>
+            </div> -->
         </div>
     </div>
     <div class="block-content">
@@ -19,7 +19,7 @@
                     <th>Dirección</th>
                     <th>Nombre del Dueño</th>
                     <th>Monto alquiler</th>
-  <th class="text-center" style="width: 100px;">Acciones</th>
+                    <th class="text-center" style="width: 100px;">Acciones</th>
                 </tr>
             </thead>
             <tbody>
@@ -29,8 +29,8 @@
                     <td>{{property.tenant.firstname}} {{property.tenant.lastname}}</td>
                     <td>{{property.address}}</td>
                     <td>{{property.owner.firstname}} {{property.owner.lastname}}</td>
-                    <td>{{property.monthly_payment}}</td>
-             <td class="text-center">
+                    <td>{{property.monthly_payment | currency}}</td>
+                    <td class="text-center">
                         <div class="btn-group">
                     <!--         <button type="button" class="btn btn-sm btn-outline-warning" data-bs-toggle="tooltip"
                                 title="Editar">
@@ -40,7 +40,7 @@
                                 title="Eliminar">
                                 <i class="fa fa-times"></i>
                             </button> -->
-                            <button type="button" class="btn btn-sm btn-outline-info" data-bs-toggle="tooltip"
+                            <button type="button" class="btn btn-sm btn-outline-info" data-bs-toggle="tooltip" [routerLink]="['/owners/details',property.id]"
                                 title="Ver">
                                 <i class="fa fa-eye"></i>
                             </button>
