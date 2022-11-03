@@ -45,7 +45,7 @@ export class CreateClaimModalComponent implements OnInit {
       return images[1]
     })
     evidences.forEach(evidence => {
-      if (evidence.type !== "image/webp") {
+      if (!evidence.type.includes('image')) {
         this._toastService.warning('Este campo solo acepta imagenes')
         this.claimForm.get('voucher')?.reset()
         return
