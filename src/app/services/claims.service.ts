@@ -17,6 +17,10 @@ export class ClaimsService {
     return this._http.get<Claims>(`${this.apiUrl}/tenant/claims`)
   }
 
+  getBrokerClaims():Observable<Claims>{
+    return this._http.get<Claims>(`${this.apiUrl}/broker/claims`)
+  }
+
   getDetails(claimId:number):Observable<Claims>{
     return this._http.get<Claims>(`${this.apiUrl}/claims/${claimId}`)
   }

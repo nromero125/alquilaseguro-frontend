@@ -2,7 +2,7 @@
     <div class="block-header block-header-default">
         <h3 class="block-title">Reclamaciones</h3>
         <div class="block-options">
-            <div class="block-options-item">
+            <div *ngIf="this.current_user.user_type != 5" class="block-options-item">
                 <button type="button" (click)="openCreationModal()" class="btn btn-sm btn-success" data-bs-toggle="tooltip" title="Nueva Reclamación">
                     Agregar <i class="far fa-plus  fw-bold"></i>
                 </button>
