@@ -3,7 +3,6 @@ import { MatDialog } from '@angular/material/dialog';
 import { Claims } from 'src/app/interfaces/claims-interfaces';
 import { ClaimsService } from 'src/app/services/claims.service';
 import { CreateClaimModalComponent } from '../create-claim-modal/create-claim-modal.component';
-declare var $: any;
 @Component({
   selector: 'app-claims',
   templateUrl: './claims.component.html',
@@ -19,15 +18,6 @@ export class ClaimsComponent implements OnInit {
 
   ngOnInit(): void {
     this.getClaimsData()
-
-    $(document).ready(function () {
-      $('.js-gallery').magnificPopup({
-        delegate: 'a', // child items selector, by clicking on it popup will open
-        type: 'image',
- 
-        // other options
-      });
-    });
   }
 
   getClaimsData() {

@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { Claims } from 'src/app/interfaces/claims-interfaces';
 import { ClaimsService } from 'src/app/services/claims.service';
+declare var $: any;
 
 @Component({
   selector: 'app-clamis-details',
@@ -24,6 +25,21 @@ export class ClamisDetailsComponent implements OnInit {
 
   ngOnInit(): void {
     this.getData()
+    
+  }
+
+  loadGalleryPlugin() {
+    $(document).ready(function () {
+      $('.js-gallery').magnificPopup({
+        delegate: 'a', // child items selector, by clicking on it popup will open
+        type: 'image',
+        gallery: {
+          // options for gallery
+          enabled: true
+        },
+        // other options
+      });
+    });
   }
 
   getData() {
@@ -31,6 +47,7 @@ export class ClamisDetailsComponent implements OnInit {
       next: (res: any) => {
         this.claimDetails = res
         console.log(this.claimDetails)
+        this.loadGalleryPlugin()
       },
       error: (err: any) => {
         this._toastService.error('Ha ocurrido un error tratando de obtener la reclamación')
