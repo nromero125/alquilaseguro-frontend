@@ -62,4 +62,8 @@ export class AuthService {
     document.getElementById('page-container')?.classList.remove('sidebar-o')
   }
 
+  sendResettingEmail(email:string){
+    return this.http.post(`${this.baseUrl}/password/forgot-password`, email)
+  }
+
 }

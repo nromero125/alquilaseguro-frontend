@@ -28,11 +28,11 @@
         <!-- For more examples you can check out https://github.com/jzaefferer/jquery-validation -->
         <form class="js-validation-reminder px-4" action="be_pages_auth_all.html" method="POST">
           <div class="form-floating mb-4">
-            <input type="text" class="form-control" id="reminder-credential" name="reminder-credential" placeholder="Enter your email or username">
+            <input [(ngModel)]="email" type="text" class="form-control" id="reminder-credential" name="reminder-credential" placeholder="Enter your email or username">
             <label class="form-label" for="reminder-credential">Email</label>
           </div>
           <div class="mb-4">
-            <button type="submit" class="btn btn-lg bg-tangerine fw-semibold w-100">
+            <button [disabled]="!email" (click)="sendEmailForResetting()" type="submit" class="btn btn-lg bg-tangerine fw-semibold w-100">
               Restablecer la contraseña
             </button>
             <div class="mt-4 w-100 text-center" style="cursor: pointer;" routerLink="/auth/login">
