@@ -1,160 +1,180 @@
 <div class="row">
-    <div class="col-12 col-md-6">
-        <div class="block mb-4">
-            <div class="block-header block-header-default">
-                <h3 class="block-title">Detalle de Propiedad</h3>
-                
-            </div>
-            <div class="block-content p-3">
-                <div class="d-flex gap-5 flex-wrap">
-                    <div>
-                        <h5 class="text-dark mb-1 title-details">Nombre:</h5>
-                        <span *ngIf="propertyDetails">{{propertyDetails.name}}</span>
-                    </div>
-        
-                    <div>
-                        <h5 class="text-dark mb-1 title-details">Fecha de Pago:</h5>
-                        <span *ngIf="propertyDetails">{{propertyDetails.payment_due_date | date: 'dd-MM-yyyy'}}</span>
-                    </div>
-        
-                    <div>
-                        <h5 class="text-dark mb-1 title-details">Dercripción:</h5>
-                        <span *ngIf="propertyDetails">{{propertyDetails.description}}</span>
-                    </div>
-        
-                    <div>
-                        <h5 class="text-dark mb-1 title-details">MONTO ALQUILER:</h5>
-                        <span *ngIf="propertyDetails">{{propertyDetails.monthly_payment| currency}}</span>
-                    </div>
 
-                    <div>
-                        <h5 class="text-dark mb-1 title-details">Dirección:</h5>
-                        <span *ngIf="propertyDetails">{{propertyDetails.address}}</span>
-                    </div>
-              
-                </div>
-             
-            </div>
-        </div>
-    </div>
     <div class="col-12 col-md-6">
-        <div class="block mb-4">
-            <div class="block-header block-header-default">
-                <h3 class="block-title">Detalle del Agente Inmobiliario</h3>
+        <div class="block block-themed block-rounded">
+          <div class="block-header bg-gray-darker">
+            <div class="d-flex gap-2">
+                <i class="far fa-2x fa-building align-bottom text-tangerine mt-1"></i>
+                <h3 class="block-title mt-3 align-bottom text-tangerine">Detalle de Propiedad</h3>
             </div>
-            <div class="block-content p-3">
-                <div class="d-flex gap-5 flex-wrap">
-                    <div>
-                        <h5 class="text-dark mb-1 title-details">Nombre:</h5>
-                        <span *ngIf="propertyDetails">{{propertyDetails.broker.firstname}} {{propertyDetails.broker.lastname}}</span>
-                    </div>
-        
-                    <div>
-                        <h5 class="text-dark mb-1 title-details">Contacto:</h5>
-                        <span *ngIf="propertyDetails">{{propertyDetails.broker.phone_number}}</span>
-                    </div>
-        
-                    <div>
-                        <h5 class="text-dark mb-1 title-details">Identificación:</h5>
-                        <span *ngIf="propertyDetails">{{propertyDetails.broker.identification}}</span>
-                    </div>
-        
-                    <div>
-                        <h5 class="text-dark mb-1 title-details">Banco:</h5>
-                        <span *ngIf="propertyDetails">{{propertyDetails.broker.bank_name}}</span>
-                    </div>
-                    <div>
-                        <h5 class="text-dark mb-1 title-details">Número de cuenta:</h5>
-                        <span *ngIf="propertyDetails">{{propertyDetails.broker.bank_account}}</span>
-                    </div>
+          </div>
+          <div class="block-content p-3  shadow bg-platinum-gray">
+            <div class="d-flex gap-5 flex-wrap " style="font-weight: 500;">
+                <div >
+                    <h5 class="text-dark mb-1 title-details">Nombre:</h5>
+                    <span *ngIf="propertyDetails">{{propertyDetails.name}}</span>
+                </div>
+    
+                <div>
+                    <h5 class="text-dark mb-1 title-details">Fecha de Pago:</h5>
+                    <span *ngIf="propertyDetails">{{propertyDetails.payment_due_date | date: 'dd-MM-yyyy'}}</span>
+                </div>
+    
+                <div>
+                    <h5 class="text-dark mb-1 title-details">Dercripción:</h5>
+                    <span *ngIf="propertyDetails">{{propertyDetails.description}}</span>
+                </div>
+    
+                <div>
+                    <h5 class="text-dark mb-1 title-details">MONTO ALQUILER:</h5>
+                    <span *ngIf="propertyDetails">{{propertyDetails.monthly_payment| currency}}</span>
+                </div>
 
-                        
-                    <div>
-                        <h5 class="text-dark mb-1 title-details">Dirección:</h5>
-                        <span *ngIf="propertyDetails">{{propertyDetails.broker.address}}</span>
-                    </div>
+                <div>
+                    <h5 class="text-dark mb-1 title-details">Dirección:</h5>
+                    <span *ngIf="propertyDetails">{{propertyDetails.address}}</span>
                 </div>
+          
+            </div>
             </div>
         </div>
-    </div>
-    <div class="col-12 col-md-6">
-        <div class="block mb-4">
-            <div class="block-header block-header-default">
-                <h3 class="block-title">Detalle del Dueño</h3>
-            </div>
-            <div class="block-content p-3">
-                <div class="d-flex gap-5 flex-wrap">
-                    <div>
-                        <h5 class="text-dark mb-1 title-details">Nombre:</h5>
-                        <span *ngIf="propertyDetails">{{propertyDetails.owner.firstname}} {{propertyDetails.broker.lastname}}</span>
-                    </div>
-        
-                    <div>
-                        <h5 class="text-dark mb-1 title-details">Contacto:</h5>
-                        <span *ngIf="propertyDetails">{{propertyDetails.owner.phone_number}}</span>
-                    </div>
-        
-                    <div>
-                        <h5 class="text-dark mb-1 title-details">Identificación:</h5>
-                        <span *ngIf="propertyDetails">{{propertyDetails.owner.identification}}</span>
-                    </div>
-        
-                    <div>
-                        <h5 class="text-dark mb-1 title-details">Banco:</h5>
-                        <span *ngIf="propertyDetails">{{propertyDetails.owner.bank_name}}</span>
-                    </div>
-                    <div>
-                        <h5 class="text-dark mb-1 title-details">Número de cuenta:</h5>
-                        <span *ngIf="propertyDetails">{{propertyDetails.owner.bank_account}}</span>
-                    </div>
+      </div>
 
-                    <div>
-                        <h5 class="text-dark mb-1 title-details">Dirección:</h5>
-                        <span *ngIf="propertyDetails">{{propertyDetails.owner.address}}</span>
-                    </div>
+      <div class="col-12 col-md-6">
+        <div class="block block-themed block-rounded">
+          <div class="block-header bg-gray-darker">
+            <div class="d-flex gap-2">
+                <i class="far fa-2x fa-rectangle-list align-bottom text-tangerine mt-2"></i>
+                <h3 class="block-title mt-3 align-bottom text-tangerine">Detalle del Agente Inmobiliario</h3>
+            </div>
+          </div>
+          <div class="block-content p-3  shadow bg-platinum-gray">
+            <div class="d-flex gap-5 flex-wrap " style="font-weight: 500;">
+                <div>
+                    <h5 class="text-dark mb-1 title-details">Nombre:</h5>
+                    <span *ngIf="propertyDetails">{{propertyDetails.broker.firstname}} {{propertyDetails.broker.lastname}}</span>
+                </div>
+    
+                <div>
+                    <h5 class="text-dark mb-1 title-details">Contacto:</h5>
+                    <span *ngIf="propertyDetails">{{propertyDetails.broker.phone_number}}</span>
+                </div>
+    
+                <div>
+                    <h5 class="text-dark mb-1 title-details">Identificación:</h5>
+                    <span *ngIf="propertyDetails">{{propertyDetails.broker.identification}}</span>
+                </div>
+    
+                <div>
+                    <h5 class="text-dark mb-1 title-details">Banco:</h5>
+                    <span *ngIf="propertyDetails">{{propertyDetails.broker.bank_name}}</span>
+                </div>
+                <div>
+                    <h5 class="text-dark mb-1 title-details">Número de cuenta:</h5>
+                    <span *ngIf="propertyDetails">{{propertyDetails.broker.bank_account}}</span>
+                </div>
+
+                    
+                <div>
+                    <h5 class="text-dark mb-1 title-details">Dirección:</h5>
+                    <span *ngIf="propertyDetails">{{propertyDetails.broker.address}}</span>
                 </div>
             </div>
-        </div>
-    </div>
-    <div class="col-12 col-md-6">
-        <div class="block mb-4">
-            <div class="block-header block-header-default">
-                <h3 class="block-title">Detalle del Inquilino</h3>
+         
             </div>
-            <div class="block-content p-3">
-                <div class="d-flex gap-5 flex-wrap">
-                    <div>
-                        <h5 class="text-dark mb-1 title-details">Nombre:</h5>
-                        <span *ngIf="propertyDetails">{{propertyDetails.tenant.firstname}} {{propertyDetails.broker.lastname}}</span>
-                    </div>
-        
-                    <div>
-                        <h5 class="text-dark mb-1 title-details">Contacto:</h5>
-                        <span *ngIf="propertyDetails">{{propertyDetails.tenant.phone_number}}</span>
-                    </div>
-        
-                    <div>
-                        <h5 class="text-dark mb-1 title-details">Identificación:</h5>
-                        <span *ngIf="propertyDetails">{{propertyDetails.tenant.identification}}</span>
-                    </div>
-        
-                    <div>
-                        <h5 class="text-dark mb-1 title-details">Banco:</h5>
-                        <span *ngIf="propertyDetails">{{propertyDetails.tenant.bank_name}}</span>
-                    </div>
-                    <div>
-                        <h5 class="text-dark mb-1 title-details">Número de cuenta:</h5>
-                        <span *ngIf="propertyDetails">{{propertyDetails.tenant.bank_account}}</span>
-                    </div>
-                    <div>
-                        <h5 class="text-dark mb-1 title-details">Dirección:</h5>
-                        <span *ngIf="propertyDetails">{{propertyDetails.tenant.address}}</span>
-                    </div>
+        </div>
+      </div>
+    
+ 
+
+      <div class="col-12 col-md-6">
+        <div class="block block-themed block-rounded">
+          <div class="block-header bg-gray-darker">
+            <div class="d-flex gap-2">
+                <i class="far fa-2x fa-user align-bottom text-tangerine mt-2"></i>
+                <h3 class="block-title mt-3 align-bottom text-tangerine">Detalle del Dueño</h3>
+            </div>
+          </div>
+          <div class="block-content p-3  shadow bg-platinum-gray">
+            <div class="d-flex gap-5 flex-wrap " style="font-weight: 500;">
+                <div>
+                    <h5 class="text-dark mb-1 title-details">Nombre:</h5>
+                    <span *ngIf="propertyDetails">{{propertyDetails.owner.firstname}} {{propertyDetails.broker.lastname}}</span>
+                </div>
+    
+                <div>
+                    <h5 class="text-dark mb-1 title-details">Contacto:</h5>
+                    <span *ngIf="propertyDetails">{{propertyDetails.owner.phone_number}}</span>
+                </div>
+    
+                <div>
+                    <h5 class="text-dark mb-1 title-details">Identificación:</h5>
+                    <span *ngIf="propertyDetails">{{propertyDetails.owner.identification}}</span>
+                </div>
+    
+                <div>
+                    <h5 class="text-dark mb-1 title-details">Banco:</h5>
+                    <span *ngIf="propertyDetails">{{propertyDetails.owner.bank_name}}</span>
+                </div>
+                <div>
+                    <h5 class="text-dark mb-1 title-details">Número de cuenta:</h5>
+                    <span *ngIf="propertyDetails">{{propertyDetails.owner.bank_account}}</span>
+                </div>
+
+                <div>
+                    <h5 class="text-dark mb-1 title-details">Dirección:</h5>
+                    <span *ngIf="propertyDetails">{{propertyDetails.owner.address}}</span>
                 </div>
             </div>
+         
+            </div>
         </div>
-    </div>
-    <div class="col-12">
+      </div>
+
+
+      <div class="col-12 col-md-6">
+        <div class="block block-themed block-rounded">
+          <div class="block-header bg-gray-darker">
+            <div class="d-flex gap-2">
+                <i class="far fa-2x fa-address-card align-bottom text-tangerine mt-2"></i>
+                <h3 class="block-title mt-3 align-bottom text-tangerine">Detalle del Inquilino</h3>
+            </div>
+          </div>
+          <div class="block-content p-3  shadow bg-platinum-gray">
+            <div class="d-flex gap-5 flex-wrap " style="font-weight: 500;">
+                <div>
+                    <h5 class="text-dark mb-1 title-details">Nombre:</h5>
+                    <span *ngIf="propertyDetails">{{propertyDetails.tenant.firstname}} {{propertyDetails.broker.lastname}}</span>
+                </div>
+    
+                <div>
+                    <h5 class="text-dark mb-1 title-details">Contacto:</h5>
+                    <span *ngIf="propertyDetails">{{propertyDetails.tenant.phone_number}}</span>
+                </div>
+    
+                <div>
+                    <h5 class="text-dark mb-1 title-details">Identificación:</h5>
+                    <span *ngIf="propertyDetails">{{propertyDetails.tenant.identification}}</span>
+                </div>
+    
+                <div>
+                    <h5 class="text-dark mb-1 title-details">Banco:</h5>
+                    <span *ngIf="propertyDetails">{{propertyDetails.tenant.bank_name}}</span>
+                </div>
+                <div>
+                    <h5 class="text-dark mb-1 title-details">Número de cuenta:</h5>
+                    <span *ngIf="propertyDetails">{{propertyDetails.tenant.bank_account}}</span>
+                </div>
+                <div>
+                    <h5 class="text-dark mb-1 title-details">Dirección:</h5>
+                    <span *ngIf="propertyDetails">{{propertyDetails.tenant.address}}</span>
+                </div>
+            </div>
+         
+            </div>
+        </div>
+      </div>
+<!--     <div class="col-12">
         <div class="block mb-4">
             <div class="block-header block-header-default">
                 <h3 class="block-title">Historial de Pagos</h3>
@@ -167,7 +187,6 @@
                         <th class="text-left">Fecha</th>
                         <th class="text-left">Monto</th>
                         <th class="text-left">Tipo</th>
-                       <!--  <th class="text-center" style="width: 100px;">Acciones</th> -->
                     </tr>
                 </thead>
                 <tbody>
@@ -176,22 +195,6 @@
                         <td class="text-left">{{payment.paid_at | date:'dd/mm/yyyy'}}</td>
                         <td class="text-left">{{payment.amount | currency}}</td>
                         <td class="text-left">{{payment.payment_type | paymentStatus}}</td>
-         <!--                <td class="text-center">
-                            <div class="btn-group">
-                            <button type="button" class="btn btn-sm btn-outline-warning" data-bs-toggle="tooltip"
-                                    title="Editar">
-                                    <i class="fa fa-pencil-alt"></i>
-                                </button>
-                                <button type="button" class="btn btn-sm btn-outline-danger" data-bs-toggle="tooltip"
-                                    title="Eliminar">
-                                    <i class="fa fa-times"></i>
-                                </button>
-                             <button type="button" class="btn btn-sm btn-outline-info" data-bs-toggle="tooltip" [routerLink]="['/owners/details',property.id]"
-                                    title="Ver">
-                                    <i class="fa fa-eye"></i>
-                                </button>
-                            </div>
-                        </td> -->
                     </tr>
                 </tbody>
              
@@ -202,7 +205,7 @@
             (sendPaginatedRecords)="getPaginatedRecords($event)"
             ></app-paginator>
         </div>
-    </div>
+    </div> -->
 </div>
 
 
