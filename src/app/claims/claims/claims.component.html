@@ -1,6 +1,10 @@
 <div class="block">
     <div class="block-header block-header-default">
-        <h3 class="block-title">Reclamaciones</h3>
+        <div class="d-flex gap-1 align-middle">
+            <i class="nav-main-link-icon fa fa-file-circle-xmark fs-2"></i>
+            <h3 class="block-title  mt-2">Reclamaciones</h3>
+        </div>
+    
         <div class="block-options">
             <div *ngIf="this.current_user.user_type != 5" class="block-options-item">
                 <button type="button" (click)="openCreationModal()" class="btn btn-sm btn-success" data-bs-toggle="tooltip" title="Nueva Reclamación">
