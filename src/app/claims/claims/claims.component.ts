@@ -1,10 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { AuthService } from 'src/app/auth/services/auth.service';
 import { Claims } from 'src/app/interfaces/claims-interfaces';
 import { ClaimsService } from 'src/app/services/claims.service';
 import { CreateClaimModalComponent } from '../create-claim-modal/create-claim-modal.component';
-
-
 @Component({
   selector: 'app-claims',
   templateUrl: './claims.component.html',
@@ -12,7 +11,11 @@ import { CreateClaimModalComponent } from '../create-claim-modal/create-claim-mo
 })
 export class ClaimsComponent implements OnInit {
 
-  constructor(private claimsServices: ClaimsService, private _dialog: MatDialog) { }
+  current_user:any
+
+  constructor(private claimsServices: ClaimsService, private _dialog: MatDialog, private _authService: AuthService) { 
+    this.current_user = this._authService.user
+  }
 
   claimsList: Claims[] = [];
   paginatedClaimsList: Claims[] = [];
@@ -23,6 +26,15 @@ export class ClaimsComponent implements OnInit {
   }
 
   getClaimsData() {
+    if (this.current_user?.user_type != 4) {
+      this.claimsServices.getBrokerClaims().subscribe({
+        next: (res: any) => {
+          this.claimsList = res.data
+        }
+      })
+      return
+    }
+
     this.claimsServices.getTenantClaims().subscribe({
       next: (res: any) => {
         this.claimsList = res.data

@@ -129,7 +129,7 @@
   <div class="block-content p-3  shadow bg-platinum-gray">
     <div class="row items-push js-gallery img-fluid-100">
       <div class="col-md-6 col-lg-4 col-xl-3 animated fadeIn" *ngFor="let image of claimDetails?.media">
-        <a class="img-link img-link-zoom-in img-thumb img-lightbox">
+        <a  class="img-link img-link-zoom-in img-thumb img-lightbox" href="{{image?.original_url}}">
           <img class="rounded mx-auto d-block" src="{{image?.original_url}}" alt="" width="280px" height="280px">
         </a>
       </div>
