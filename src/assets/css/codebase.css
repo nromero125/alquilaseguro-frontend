@@ -15613,6 +15613,13 @@ a.item.item-link-pop:active {
   background-position: 0% 50%;
   background-size: cover;
 }
+
+.bg-image-custom {
+  background-position: 0% 50%;
+  background: no-repeat;
+  background-size: auto;
+}
+
 .bg-image-top {
   background-position-y: 0%;
 }
@@ -15859,6 +15866,7 @@ button.bg-body-dark:focus {
 
 .bg-body-extra-light {
   background-color: #fff !important;
+/*   background: linear-gradient(120deg, #3e444a  55%,   #fff 55%); */
 }
 
 a.bg-body-extra-light:hover, a.bg-body-extra-light:focus,

@@ -185,3 +185,99 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     background-color: #f59e0b!important;
     border-color: #f59e0b!important;
 }
+
+
+.bg-turquesa{
+  background-color: #51e9c0;
+}
+
+.bg-slate{
+  background-color: #6662ef;
+}
+
+.bg-tangerine{
+  background-color: #fcb21f;
+  border-color: #fcb21fc0;
+}
+
+.bg-tangerine:hover{
+  background-color: #fcb21fc0;
+  border-color: #fcb21fc0;
+}
+
+.bg-tangerine:active{
+  background-color: #fcb21fc0;
+  border-color: #fcb21fc0;
+}
+
+.bg-tangerine:focus:not(:focus-visible){
+  background-color: #fcb21fc0;
+  border-color: #fcb21fc0;
+}
+
+.bg-platinum-gray{
+  background-color: #e7e7e7;
+}
+
+
+.bg-turquesa-sky{
+  background-color: #51e9c1c9;
+}
+
+.bg-slate-sky{
+  background-color: #6762efca;
+}
+
+.bg-tangerine-sky{
+  background-color: #fcb21fc3;
+}
+
+.bg-platinum-gray-sky{
+  background-color: #e7e7e7d3;
+}
+
+.text-tangerine{
+  color: #fcb21f;
+}
+
+.text-slate{
+  color: #6662ef;
+}
+
+.text-turquesa{
+  color: #51e9c0;
+}
+
+.text-platinum-gray{
+  color: #e7e7e7;
+}
+
+
+.bg-default-op {
+  background-color: #fcb21f26 !important;
+}
+
+a.bg-default-op:hover, a.bg-default-op:focus,
+button.bg-default-op:hover,
+button.bg-default-op:focus {
+   background-color: #fcb21f !important;
+}
+
+/* #page-header{
+border-bottom: 2px solid #fcb21f !important;
+} */
+
+.active-btn {
+    color: #fff!important;
+    background-color: #f59f0b9f!important;
+    border-color: #f59e0b!important;
+    
+}
+
+.nav-main-link .nav-main-link-icon{
+  font-size: 1.5rem;
+}
+
+.content-side.content-side-user {
+  background-color: #fcb21f2e;
+}

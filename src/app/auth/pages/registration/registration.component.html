@@ -1,41 +1,52 @@
-<div class="d-flex justify-content-center align-items-center h-100">
-    <form class="w-500">
-      <div class="block block-rounded">
-        <div class="block-header block-header-default">
-          <h3 class="block-title">Block Form</h3>
-          <div class="block-options">
-            <a class="btn-block-option" routerLink="/owners/component">
-              <i class="fa fa-fw fa-check opacity-50"></i> Enviar
-            </a>
-          </div>
+<div class="bg-image-custom" style="background-image: url('assets/media/photos/indexLogin.jpg');">
+  <div class="row mx-0 bg-default-op">
+    <div class="hero-static col-md-6 col-xl-8 d-none d-md-flex align-items-md-end">
+      <div class="p-4">
+       <!--  <p class="fs-3 fw-semibold text-white">
+          You are awesome! Build something amazing!
+        </p> -->
+        <p class="text-white-75 fw-medium">
+          Copyright &copy; <span data-toggle="year-copy"></span>
+        </p>
+      </div>
+    </div>
+    <div class="hero-static col-md-6 col-xl-4 d-flex align-items-center bg-body-extra-light">
+      <div class="content content-full">
+        <!-- Header -->
+        <div class="px-4 py-2 mb-4">
+    <!--       <a class="link-fx fw-bold" href="index.html">
+            <i class="fa fa-fire"></i>
+            <span class="fs-4 text-body-color">code</span><span class="fs-4">base</span>
+          </a> -->
+          <h1 class="h3 fw-bold mt-4 mb-2 text-center">No te preocupes, te respaldamos</h1>
+          <h2 class="h5 fw-medium text-muted mb-0 text-center">Por favor ingrese su correo electrónico</h2>
         </div>
-        <div class="block-content">
-          <div class="row justify-content-center py-sm-3 py-md-5">
-            <div class="col-sm-10 col-md-8">
-              <div class="mb-4">
-                <label class="form-label" for="block-form-username">Username</label>
-                <input type="text" class="form-control" id="block-form-username" name="block-form-username" placeholder="Enter your username..">
-              </div>
-              <div class="mb-4">
-                <label class="form-label" for="block-form-username">Campos</label>
-                <input type="text" class="form-control" id="block-form-username" name="block-form-username" placeholder="Enter your username..">
-              </div>
-              <div class="mb-4">
-                <label class="form-label" for="block-form-username">Y mas campos</label>
-                <input type="text" class="form-control" id="block-form-username" name="block-form-username" placeholder="Enter your username..">
-              </div>
-              <div class="mb-4">
-                <label class="form-label" for="block-form-password">Password</label>
-                <input type="password" [autocomplete]="false" class="form-control" id="block-form-password" name="block-form-password" placeholder="Enter your password..">
-              </div>
-              <div class="mb-4">
-                <div class="form-check">
-                    <a  routerLink="/auth/login"> Login</a>
+        <!-- END Header -->
+
+        <!-- Reminder Form -->
+        <!-- jQuery Validation functionality is initialized with .js-validation-reminder class in js/pages/op_auth_reminder.min.js which was auto compiled from _js/pages/op_auth_reminder.js -->
+        <!-- For more examples you can check out https://github.com/jzaefferer/jquery-validation -->
+        <form class="js-validation-reminder px-4" action="be_pages_auth_all.html" method="POST">
+          <div class="form-floating mb-4">
+            <input type="text" class="form-control" id="reminder-credential" name="reminder-credential" placeholder="Enter your email or username">
+            <label class="form-label" for="reminder-credential">Email</label>
+          </div>
+          <div class="mb-4">
+            <button type="submit" class="btn btn-lg bg-tangerine fw-semibold w-100">
+              Restablecer la contraseña
+            </button>
+            <div class="mt-4 w-100 text-center" style="cursor: pointer;" routerLink="/auth/login">
+              <a class="fs-sm fw-medium link-fx text-muted me-2 mb-1 d-inline-block">
+                <div>
+                  <i class="fa fa-arrow-left opacity-50 me-1"></i><span>Iniciar sesión</span> 
                 </div>
-              </div>
+              </a>
             </div>
           </div>
-        </div>
+        </form>
+        <!-- END Reminder Form -->
       </div>
-    </form>
+    </div>
   </div>
+</div>
+<!-- END Page Content -->
