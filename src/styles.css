@@ -182,12 +182,8 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .active-btn i {color: #fff!important;}
 .active-btn {
     color: #fff!important;
-    background-color: #fcb21f!important;
-    border-color: #fcb21f!important;
-}
-
-.btn-success{
-  color: black !important;
+    background-color: #f59e0b!important;
+    border-color: #f59e0b!important;
 }
 
 
