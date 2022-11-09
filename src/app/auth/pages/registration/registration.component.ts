@@ -17,9 +17,9 @@ export class RegistrationComponent implements OnInit {
   }
 
   sendEmailForResetting(){
-    this._authService.sendResettingEmail(this.email).subscribe({
+    this._authService.sendResettingEmail({email:this.email}).subscribe({
       next:(res:any)=>{
-        this._toastService.success('Revisa tu correo donde estaremos enviando un enlace para reiniciar su contraseña', 'Enlace enviado')
+        this._toastService.success(res.message, 'Enlace enviado')
         console.log(res);
       },
       error:(err:any)=>{

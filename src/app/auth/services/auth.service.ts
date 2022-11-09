@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { catchError, map, retry, tap } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
-import { AuthResponce, User } from '../interfaces/interfaces';
+import { AuthResponce, resetPasswordModel, User } from '../interfaces/interfaces';
 
 @Injectable({
   providedIn: 'root'
@@ -62,8 +62,12 @@ export class AuthService {
     document.getElementById('page-container')?.classList.remove('sidebar-o')
   }
 
-  sendResettingEmail(email:string){
+  sendResettingEmail(email:any){
     return this.http.post(`${this.baseUrl}/password/forgot-password`, email)
+  }
+  
+  resetPassword(resetModel: resetPasswordModel){
+    return this.http.post(`${this.baseUrl}/password/reset`, resetModel)
   }
 
 }
