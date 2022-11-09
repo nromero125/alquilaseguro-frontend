@@ -210,6 +210,11 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   border-color: #fcb21fc0;
 }
 
+.bg-tangerine:disabled{
+  background-color: #e6c480;
+  border-color: #e6c480;
+}
+
 .bg-tangerine:focus:not(:focus-visible){
   background-color: #fcb21fc0;
   border-color: #fcb21fc0;
