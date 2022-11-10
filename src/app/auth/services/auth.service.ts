@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { catchError, map, retry, tap } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
-import { AuthResponce, resetPasswordModel, User } from '../interfaces/interfaces';
+import { AuthResponce, resetPasswordModel, UserAuth } from '../interfaces/interfaces';
 
 @Injectable({
   providedIn: 'root'

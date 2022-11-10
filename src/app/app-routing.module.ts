@@ -27,6 +27,12 @@ const routes: Routes = [
     canActivate: [TokenValidatorGuard],
     canLoad: [TokenValidatorGuard]
   },
+   {
+    path:'users',
+    loadChildren: ()=> import('./users/users.module').then(m => m.UsersModule),
+    canActivate: [TokenValidatorGuard],
+    canLoad: [TokenValidatorGuard]
+  },
   {
     path:'page-404',
     component:Page404Component

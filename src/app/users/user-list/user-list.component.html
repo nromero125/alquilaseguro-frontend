@@ -1,0 +1,49 @@
+<div class="block">
+    <div class="block-header block-header-default">
+        <div class="d-flex gap-1 align-middle">
+            <i class="nav-main-link-icon fa fa-user fs-2"></i>
+            <h3 class="block-title  mt-2"> Usuarios</h3>
+        </div>
+    
+        <div class="block-options">
+            <div class="block-options-item">
+                <button (click)="openCreateModal()" type="button" class="btn btn-sm btn-success" data-bs-toggle="tooltip" title="Nuevo Usuario">
+                    Agregar <i class="far fa-plus  fw-bold"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="block-content">
+        <div class="table-responsive">
+        <table class="table table-hover table-vcenter">
+            <thead>
+                <tr >
+                    <th class="text-center" style="width: 50px;"></th>
+                    <th>Nombre</th>
+                    <th>Identificación</th>
+                    <th>Número de Teléfono</th>
+                    <th>Correo Electrónico</th>
+                    <th>Dirección</th>
+                    <th>Fecha de Creación</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let user of paginatedUsersList">
+                    <th class="text-center" scope="row">{{user.user.id}}</th>
+                    <td>{{user.firstname}} {{user.lastname}}</td>
+                    <td>{{user.identification}}</td>
+                    <td>{{user.phone_number | mask: "+0 (000) 000-0000"}}</td>
+                    <td>{{user.user.email}}</td>
+                    <td>{{user.address}}</td>
+                    <td>{{user.created_at |date:'dd/MM/yyyy'}}</td>
+                </tr>
+             
+            </tbody>
+        </table>
+        </div>
+        <app-paginator 
+        [records]="usersList"
+        (sendPaginatedRecords)="getPaginatedRecords($event)"
+        ></app-paginator>
+    </div>
+</div>
