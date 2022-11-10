@@ -1,10 +1,10 @@
 export interface AuthResponce {
     token: string;
-    user: User;
+    user: UserAuth;
     ok?: boolean;
 }
 
-export interface User {
+export interface UserAuth {
     id: number;
     name: string;
     email: string;
