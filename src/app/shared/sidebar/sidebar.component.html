@@ -85,7 +85,7 @@
                     <span class="nav-main-link-name">Propiedades</span>
                   </a>
                 </li>
-                <li *ngIf="user.user_type == 6" class="nav-main-item">
+                <li *ngIf="user.user_type == 6 || user.user_type == 7" class="nav-main-item">
                   <a class="nav-main-link"  routerLinkActive="active-btn" routerLink="/users">
                     <i class="nav-main-link-icon fa fa-users"></i>
                     <span class="nav-main-link-name">Usuarios</span>
