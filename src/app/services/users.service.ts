@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
+import { AuthService } from '../auth/services/auth.service';
 import { BrokerUser } from '../interfaces/users-interfaces';
 
 @Injectable({
@@ -10,7 +10,7 @@ import { BrokerUser } from '../interfaces/users-interfaces';
 export class UsersService {
 
   apiUrl =  environment.baseUrl
-  constructor(private _http: HttpClient) { }
+  constructor(private _http: HttpClient, private authService:AuthService) { }
 
 
   getUsers(){
@@ -18,6 +18,10 @@ export class UsersService {
   }
 
   createUser(userMdoel:BrokerUser){
+
+    if (this.authService.user.user_type == 7) {
+      return this._http.post(`${this.apiUrl}/users/insurer`, userMdoel)
+    }
     return this._http.post(`${this.apiUrl}/users/broker`, userMdoel)
   }
   
