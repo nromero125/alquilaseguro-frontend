@@ -24,5 +24,13 @@ export class UsersService {
     }
     return this._http.post(`${this.apiUrl}/users/broker`, userMdoel)
   }
+
+  updateUser(userMdoel:BrokerUser, userId:number){
+
+    if (this.authService.user.user_type == 7) {
+      return this._http.put(`${this.apiUrl}/users/insurer/${userId}`, userMdoel)
+    }
+    return this._http.put(`${this.apiUrl}/users/broker/${userId}`, userMdoel)
+  }
   
 }

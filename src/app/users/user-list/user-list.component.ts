@@ -36,9 +36,13 @@ export class UserListComponent implements OnInit {
     })
   }
 
-  openCreateModal() {
+  openCreateModal(isEditing?:boolean, user?:any) {
     this._dialog.open(CreateUserComponent, {
-      width: '50%'
+      width: '50%',
+      data:{
+        isEditing,
+        user
+      }
     }).afterClosed().subscribe({
       next: (res: any) => {
         if (res) {

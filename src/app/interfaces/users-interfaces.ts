@@ -5,7 +5,7 @@ export class BrokerUser {
     identification: string;
     address: string;
     email: string;
-    password: string;
+    password?: string;
 
     constructor() {
         this.phone_number = "";

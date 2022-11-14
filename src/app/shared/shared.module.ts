@@ -12,6 +12,7 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 import { PaginatorComponent } from './paginator/paginator.component';
 import { StatusPipe } from '../pipes/status.pipe';
 import { PaymentStatusPipe } from '../pipes/payment-status.pipe';
+import { ErrorsComponent } from './errors/errors.component';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { PaymentStatusPipe } from '../pipes/payment-status.pipe';
     SidebarComponent,
     PaginatorComponent,
     StatusPipe,
-    PaymentStatusPipe
+    PaymentStatusPipe,
+    ErrorsComponent
   ],
   imports: [
     CommonModule,
@@ -36,7 +38,8 @@ import { PaymentStatusPipe } from '../pipes/payment-status.pipe';
     MatPaginatorModule,
     PaginatorComponent,
     StatusPipe,
-    PaymentStatusPipe
+    PaymentStatusPipe,
+    ErrorsComponent
   ]
 })
 export class SharedModule { }
