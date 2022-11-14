@@ -137,13 +137,13 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   align-items: center;
   box-sizing: content-box;
   margin-bottom: -0!important;
-  background-color: #f6f7f9!important;
+  background-color: #343a40!important;
   padding-right: 1rem !important;
 }
 
 .modal-header {
-  background-color: #f6f7f9!important;
-  color: #3e444a!important;
+  background-color: #343a40!important;
+  color: #fcb21f!important;
   font-size: 1.5rem;
   padding: 1rem;
   margin: 0 !important
@@ -285,4 +285,16 @@ border-bottom: 2px solid #fcb21f !important;
 
 .content-side.content-side-user {
   background-color: #fcb21f2e;
+}
+
+.simplebar-wrapper {
+  background-color: #343a40 !important;
+}
+  
+  .simplebar-offset{
+    background-color: #343a40 !important;
+}
+
+#side-overlay{
+  background-color: #343a40 !important;
 }

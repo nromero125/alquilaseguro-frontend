@@ -8,19 +8,19 @@ export class StatusPipe implements PipeTransform {
   transform(status: number,): string {
     switch (status) {
       case 1:
-        return 'ACTIVA' ;
+        return 'Rechazada' ;
         break;
       case 2:
-        return 'NUEVA' ;
+        return 'Nueva' ;
         break;
       case 3:
-        return 'EN PROGRESO' ;
+        return 'En Progreso' ;
         break;
       case 4:
-        return 'COMPLETADA' ;
+        return 'Completada' ;
         break;
       default:
-        return ''
+        return 'N/A'
     }
   }
 
