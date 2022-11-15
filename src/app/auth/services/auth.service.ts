@@ -58,8 +58,7 @@ export class AuthService {
   }
 
   logout() {
-    localStorage.removeItem('token');
-    document.getElementById('page-container')?.classList.remove('sidebar-o')
+    return this.http.post(`${this.baseUrl}/auth/logout`,null)
   }
 
   sendResettingEmail(email:any){

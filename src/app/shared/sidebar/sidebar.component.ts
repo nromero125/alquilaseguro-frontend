@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { AuthService } from 'src/app/auth/services/auth.service';
+import { SweetAlert } from '../utils/Sweet-Alert';
 
 @Component({
   selector: 'app-sidebar',
@@ -13,16 +15,36 @@ export class SidebarComponent implements OnInit {
     return this.authServices.user
   }
 
-  constructor(private router: Router,
-    private authServices: AuthService) { }
+  sweetAlrt = new SweetAlert
+
+  constructor(
+    private router: Router,
+    private authServices: AuthService,
+    private _toastService: ToastrService
+  ) { }
 
   ngOnInit(): void {
   }
 
 
   logout() {
-    this.router.navigateByUrl('/auth/login')
-    this.authServices.logout();
+    this.sweetAlrt.AlertConfirm("Cerrar Sesión", "¿Está seguro de salir de la aplicación?", "question").then(res => {
+      if (res) {
+        this.authServices.logout().subscribe({
+          next: (res: any) => {
+            this.router.navigateByUrl('/auth/login')
+            document.getElementById('page-container')?.classList.remove('sidebar-o')
+          },
+          error: (err: any) => {
+            this._toastService.error('Ocurrio un error tratando de cerrar sesion')
+          },
+        })
+      }
+      else {
+
+      }
+    })
+
   }
 
 
