@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { AuthService } from '../../services/auth.service';
 
@@ -9,7 +10,7 @@ import { AuthService } from '../../services/auth.service';
 })
 export class RegistrationComponent implements OnInit {
 
-  email:string = ''
+  email:FormControl = new FormControl('', [Validators.required, Validators.email])
 
   constructor(private _authService: AuthService, private _toastService: ToastrService) { }
 

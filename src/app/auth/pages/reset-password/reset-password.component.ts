@@ -20,19 +20,6 @@ export class ResetPasswordComponent implements OnInit {
     token: new FormControl('', [Validators.required]),
   }, { validators: this.confirmPassword })
 
-  errorMessage: any = {
-    'required': (params: any) => `Este campo es requerido.`,
-    'maxlength': (params: any) => `La cantidad máxima de caracteres permitidos ${params.requiredLength}.`,
-    'minlength': (params: any) => `La cantidad mínima de caracteres permitidos es de ${params.requiredLength}.`,
-    'pattern': (params: any) => `Formato invalido.`,
-    'min': (params: any) => `El número ingresado debe ser mayor o igual que ${params.min}.`,
-    'max': (params: any) => `El número ingresado debe ser menor o igual que ${params.max}.`,
-    'email': (params: any) => `Introduzca una dirección de correo válida ${params.max}.`,
-    'whitespace': (params: any) => `No se permiten espacios en blanco.`
-  };
-
-  errorMsgList: any = [];
-
   constructor(
     private _authService: AuthService, 
     private _toastService: ToastrService) { }
@@ -47,21 +34,6 @@ export class ResetPasswordComponent implements OnInit {
       }
     }
     return null
-  }
-
-
-  controlHasError(control: AbstractControl | AbstractControlDirective) {
-    if (control.errors) {
-      this.errorMsgList = [];
-      Object.keys(control.errors).forEach((error: any) => {
-        control.touched || control.dirty ?
-          this.errorMsgList.push(this.errorMessage[error](control.errors![error])) : '';
-      });
-      return this.errorMsgList;
-    }
-    else {
-      return [];
-    }
   }
 
   resetPassword() {

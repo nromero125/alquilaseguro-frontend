@@ -7,11 +7,13 @@
                         class="text-danger text-monospace legend">*</span></label>
                 <input placeholder="0.00" type="text" currencyMask [options]="{precision:2}" formControlName="amount"
                     class="form-control" id="example-text-input">
+                    <app-errors [controlName]="paymentForm.controls['amount']"></app-errors>
             </div>
             <div class="mb-4">
                 <label class="form-label" for="example-text-input">Fecha <span
                         class="text-danger text-monospace legend">*</span></label>
                 <input type="date" formControlName="date" class="form-control" id="example-text-input">
+                <app-errors [controlName]="paymentForm.controls['date']"></app-errors>
             </div>
             <div class="mb-4">
                 <label class="form-label" for="example-file-input">Comprobante <span
