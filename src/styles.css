@@ -137,7 +137,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   align-items: center;
   box-sizing: content-box;
   margin-bottom: -0!important;
-  background-color: #343a40!important;
+  background-color: #f6f7f9!important;
   padding-right: 1rem !important;
 }
 
@@ -297,4 +297,28 @@ border-bottom: 2px solid #fcb21f !important;
 
 #side-overlay{
   background-color: #343a40 !important;
+}
+
+/* SCROLL */
+/* width */
+::-webkit-scrollbar {
+  width : 0.5em !important;
+  height: 0.5em !important;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow   : inset 0 0 5px grey;
+  border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background   : #343a40a8 !important;
+  border-radius: 20px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #343a40a8 !important;
 }

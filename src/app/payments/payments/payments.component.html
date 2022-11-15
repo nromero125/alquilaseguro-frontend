@@ -23,7 +23,8 @@
                         <th>Monto</th>
                         <th>Tipo</th>
                         <th>Propiedad</th>
-                        <th>Comprobante</th>
+                        <th>Estatus</th>
+                        <th class="text-center">Comprobante</th>
                         <!-- <th class="text-center" style="width: 100px;">Acciones</th> -->
                     </tr>
                 </thead>
@@ -32,9 +33,14 @@
                         <th class="text-center" scope="row">{{payment.id}}</th>
                         <td>{{payment.paid_at | date:'dd/mm/yyyy'}}</td>
                         <td>{{payment.amount}}</td>
-                        <td>{{payment.payment_type}}</td>
-                        <td>{{payment.paid_property || 'N/A'}}</td>
                         <td>
+                            <span [class]="payment.is_late === 0? 'text-success': 'text-danger'" >{{payment.is_late === 0 ?'A tiempo':'Tardio' }}<i [class]=" payment.is_late === 0 ? 'fa fa-1x ms-2 fa-arrow-trend-up': ' ms-2 fa fa-1x fa-arrow-trend-down ' "></i> </span>
+                        </td>
+                        <td>{{payment.paid_property || 'N/A'}}</td>
+                        <td class="d-none d-sm-table-cell">
+                            <span [class]="payment.status === 1? 'badge bg-success': 'badge bg-warning'" >{{payment.status === 1 ?'Verificado':'Pendiente' }}</span>
+                        </td>
+                        <td class="text-center">
                             <button (click)="setUrl(payment.media[0]?.original_url)" data-bs-toggle="tooltip" title="Ver Comprobante" class="btn btn-outline-danger">
                                 <i 
                                     class="far fa-file-pdf  fw-bold fs-5"></i>
