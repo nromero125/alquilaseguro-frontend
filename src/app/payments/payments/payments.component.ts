@@ -38,6 +38,7 @@ export class PaymentsComponent implements OnInit, AfterContentInit, AfterContent
   getData() {
     this._paymentsService.getTenantPayments().subscribe({
       next: (res: any) => {
+        console.log(res.data);
         this.paymentsList = res.data
       }
     })
