@@ -1,8 +1,9 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
-import { Page404Component } from './page-404/page-404.component';
+
 import { TokenValidatorGuard } from './auth/guards/token-validator.guard';
+import { HomeComponent } from './home/page/home/home.component';
 
 const routes: Routes = [
   {
@@ -34,12 +35,14 @@ const routes: Routes = [
     canLoad: [TokenValidatorGuard]
   },
   {
-    path:'page-404',
-    component:Page404Component
-  }, 
+    path:'user',
+    loadChildren: ()=> import('./home/home.module').then(m => m.HomeModule),
+    canActivate: [TokenValidatorGuard],
+    canLoad: [TokenValidatorGuard]
+  },
   {
     path:'**',
-    redirectTo:'auth'
+    redirectTo:'user'
   }
 ]
 

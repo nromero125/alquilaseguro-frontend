@@ -4,7 +4,6 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
 
-import { Page404Component } from './page-404/page-404.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
@@ -16,11 +15,10 @@ import { CurrencyMaskModule } from 'ng2-currency-mask';
 import { ToastrModule } from 'ngx-toastr';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
-    Page404Component,
- 
   ],
   imports: [
     BrowserModule,

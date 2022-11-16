@@ -10,10 +10,14 @@
                 c<span class="text-primary">b</span>
               </span>
               <a class="link-fx fw-bold tracking-wide mx-auto" href="index.html">
-                <span class="smini-hidden">
+              <!--   <span class="smini-hidden">
                   <i class="fa fa-fire text-tangerine"></i>
                   <span class="fs-4 text-white">Logo</span><span class="fs-4 text-tangerine">Alquila</span>
-                </span>
+                </span> -->
+                <div class="text-center d-flex justify-content-center">
+                  <img src="/assets/media/PNG/AlquilaSeguro_Logo-01.png" class="img-fluid" style="width:150px;" alt="Logo">
+                 <!--  <h1 class="h3 fw-bold mt-4 mb-1 text-center">Alquila Seguros</h1> -->
+                </div>
               </a>
             </div>
             <!-- END Logo -->
@@ -37,13 +41,17 @@
             <div class="content-side content-side-user px-0 py-0">
               <!-- Visible only in mini mode -->
               <div class="smini-visible-block animated fadeIn px-3">
-                <img class="img-avatar img-avatar32" src="assets/media/avatars/avatar15.jpg" alt="">
+                <img class="img-avatar img-avatar32 " src="/assets/media/Profile_Picture/AlquilaSeguro_Logo-PP_-04.png" alt="Avatar">
               </div>
               <!-- END Visible only in mini mode -->
-  
+           
               <!-- Visible only in normal mode -->
-              <div class=" text-center mx-auto">
-                <ul class="list-inline mt-3 mb-0">
+              <div class="smini-hidden text-center mx-auto">
+          <!--       <a class="img-link">
+                  <img class="img-avatar  " src="/assets/media/Profile_Picture/AlquilaSeguro_Logo-PP_-04.png" alt="Avatar">
+                </a> -->
+             
+                <ul class="list-inline mb-0">
                   <li class="list-inline-item">
                     <a class="link-fx text-dual fs-sm fw-semibold text-uppercase" >{{user.name}}</a>
                   </li>
@@ -67,6 +75,12 @@
             <div class="content-side content-side-full">
               <ul class="nav-main">
                 <li class="nav-main-heading"></li>
+                <li  *ngIf="user.user_type" class="nav-main-item">
+                  <a class="nav-main-link"  routerLinkActive="active-btn" routerLink="/user/home">
+                    <i class="nav-main-link-icon fa fa-home"></i>
+                    <span class="nav-main-link-name">Home</span>
+                  </a>
+                </li>
                 <li  *ngIf="user.user_type === 4" class="nav-main-item">
                   <a class="nav-main-link"  routerLinkActive="active-btn" routerLink="/payments/list">
                     <i class="nav-main-link-icon fa fa-money-bill-transfer"></i>

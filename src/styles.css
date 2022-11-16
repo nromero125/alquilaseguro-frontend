@@ -100,9 +100,6 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 }
 
 
-
-
-
 .mat-dialog-content {
   display: block;
   margin: 00!important;
@@ -321,4 +318,29 @@ border-bottom: 2px solid #fcb21f !important;
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
   background: #343a40a8 !important;
+}
+
+.spinner {
+  width: 70px;
+  height: 70px;
+  margin: 20px auto;
+  border: 5px solid rgba(0, 0, 0, .1);
+  border-left: 5px solid #fcb21f;
+  border-right: 5px solid #fcb21f;
+  animation: spinner 1s linear infinite forwards;
+  -webkit-border-radius: 50%;
+     -moz-border-radius: 50%;
+       -o-border-radius: 50%;
+      -ms-border-radius: 50%;
+          border-radius: 50%
+}
+
+@keyframes spinner {
+  0% {
+      transform: rotate(0deg)
+  }
+  
+  100% {
+      transform: rotate(360deg)
+  }
 }
