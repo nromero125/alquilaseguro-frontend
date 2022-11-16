@@ -21,10 +21,10 @@ export class ErrorsComponent implements OnInit {
     'required': (params: any) => `Este campo es requerido.`,
     'maxlength': (params: any) => `La cantidad máxima de caracteres permitidos ${params.requiredLength}.`,
     'minlength': (params: any) => `La cantidad mínima de caracteres permitidos es de ${params.requiredLength}.`,
-    'pattern': (params: any) => `Formato invalido.`,
+    'pattern': (params: any) => ` Formato invalido.`,
     'min': (params: any) => `El número ingresado debe ser mayor o igual que ${params.min}.`,
     'max': (params: any) => `El número ingresado debe ser menor o igual que ${params.max}.`,
-    'email': (params: any) => `Introduzca una dirección de correo válida.`,
+    'email': (params: any) => `Introduzca una dirección de correo válida`,
     'whitespace': (params: any) => `No se permiten espacios en blanco.`
   };
 

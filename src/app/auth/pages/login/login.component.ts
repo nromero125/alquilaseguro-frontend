@@ -28,8 +28,6 @@ export class LoginComponent implements OnInit {
   }
 
   validators(control : string ){
-    
-
 
    return this.frm.get(control)?.invalid && this.frm.get(control)?.touched
 
@@ -47,8 +45,7 @@ export class LoginComponent implements OnInit {
   this.authServices.login( email, password ).subscribe({
     next:( resp )=> {
      if(resp.hasOwnProperty('token')){
-      this.router.navigateByUrl('/payments/list')
-      
+      this.router.navigateByUrl('/home')
      }else{
        Swal.fire({
         icon: 'error',

@@ -13,7 +13,7 @@ import { PaginatorComponent } from './paginator/paginator.component';
 import { StatusPipe } from '../pipes/status.pipe';
 import { PaymentStatusPipe } from '../pipes/payment-status.pipe';
 import { ErrorsComponent } from './errors/errors.component';
-
+import { NgxSpinnerModule } from "ngx-spinner";
 
 @NgModule({
   declarations: [
@@ -32,6 +32,7 @@ import { ErrorsComponent } from './errors/errors.component';
     MatDialogModule,
     SharedRoutingModule,
     MatPaginatorModule,
+    NgxSpinnerModule,
   ],
   exports:[
     LayoutComponent,

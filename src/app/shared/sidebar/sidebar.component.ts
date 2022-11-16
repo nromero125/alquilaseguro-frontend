@@ -13,6 +13,7 @@ export class SidebarComponent implements OnInit {
 
   get user() {
     return this.authServices.user
+   
   }
 
   sweetAlrt = new SweetAlert
