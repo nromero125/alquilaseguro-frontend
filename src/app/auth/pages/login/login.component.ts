@@ -44,6 +44,7 @@ export class LoginComponent implements OnInit {
 
   this.authServices.login( email, password ).subscribe({
     next:( resp )=> {
+      //console.log(resp);
      if(resp.hasOwnProperty('token')){
       this.router.navigateByUrl('/home')
      }else{

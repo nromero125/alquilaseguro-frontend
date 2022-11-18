@@ -5,3 +5,12 @@
     letter-spacing: 0.0625em;
     font-size: 0.9rem;
 }
+
+.bg-secondary{
+    background-color: rgb(255, 255, 255) !important;
+    color:black !important
+}
+.bg-secondary .d-flex > i{
+    color:#fcb21f !important;
+    font-size: 1.4rem;
+}

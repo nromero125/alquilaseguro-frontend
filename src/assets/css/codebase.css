@@ -14034,7 +14034,7 @@ small,
 }
 @media (min-width: 992px) {
   #page-container.page-header-modern:not(.sidebar-dark) #sidebar {
-    box-shadow: 0.25rem 0 0.625rem #e4e7ed;
+    box-shadow: 0.25rem 0 0.625rem #e4e7ed85;
   }
   #page-container.page-header-modern.sidebar-r:not(.sidebar-dark) #sidebar {
     box-shadow: -0.25rem 0 0.625rem #e4e7ed;
