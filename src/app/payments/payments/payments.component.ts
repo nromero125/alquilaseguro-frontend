@@ -2,6 +2,7 @@ import { ChangeDetectorRef, Component, OnInit, AfterContentInit, AfterContentChe
 import { MatDialog } from '@angular/material/dialog';
 import { DomSanitizer } from '@angular/platform-browser';
 import { ToastrService } from 'ngx-toastr';
+import { AuthService } from 'src/app/auth/services/auth.service';
 import { PaymentsService } from 'src/app/services/payments.service';
 import { ReportPaymenComponent } from '../reportPaymen/report-paymen/report-paymen.component';
 
@@ -14,12 +15,17 @@ export class PaymentsComponent implements OnInit, AfterContentInit, AfterContent
   paymentsList: any[] = []
   paginatedPaymentsList: any[] = []
   fileUrl: string = ''
+  current_user:any
 
   constructor(private _dialog: MatDialog,
     private _paymentsService: PaymentsService,
     private _changeDet: ChangeDetectorRef,
     private sanitizer: DomSanitizer,
-    private _toastService: ToastrService) { }
+    private _toastService: ToastrService,
+    private authService: AuthService) 
+    {
+      this.current_user = authService.user
+     }
 
   ngOnInit(): void {
     this.getData()
@@ -36,7 +42,8 @@ export class PaymentsComponent implements OnInit, AfterContentInit, AfterContent
   }
 
   getData() {
-    this._paymentsService.getTenantPayments().subscribe({
+
+    this._paymentsService.getPayments(this.current_user?.user_type).subscribe({
       next: (res: any) => {
         console.log(res.data);
         this.paymentsList = res.data
