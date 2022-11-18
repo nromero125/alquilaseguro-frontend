@@ -6,16 +6,39 @@ import { environment } from 'src/environments/environment.prod';
   providedIn: 'root'
 })
 export class PaymentsService {
-  apiUrl =  environment.baseUrl
-  constructor(private _http: HttpClient ) { }
+  apiUrl = environment.baseUrl
+  constructor(private _http: HttpClient) { }
 
-  getTenantPayments(){
+  getTenantPayments() {
     return this._http.get(`${this.apiUrl}/tenant/payments`)
   }
 
-  createPayment(payment:any){
-    return this._http.post(`${this.apiUrl}/tenant/payments/create`,payment)
+  getInsurerPayments() {
+    return this._http.get(`${this.apiUrl}/insurance/payments`)
   }
+
+  getPayments(userType: number) {
+
+    switch (userType) {
+      case 4:
+        return this._http.get(`${this.apiUrl}/tenant/payments`)
+      case 5:
+        return this._http.get(`${this.apiUrl}/broker/payments`)
+      case 7:
+        return this._http.get(`${this.apiUrl}/insurance/payments`)
+
+    
+      default:
+        break;
+    }
+
+    return this._http.get(`${this.apiUrl}/insurance/payments`)
+  }
+
+  createPayment(payment: any) {
+    return this._http.post(`${this.apiUrl}/tenant/payments/create`, payment)
+  }
+
 
 
 }

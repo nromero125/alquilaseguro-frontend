@@ -6,7 +6,7 @@
         </div>
         <div class="block-options">
             <div class="block-options-item">
-                <button (click)="openReportModal()" type="button" class="btn btn-sm btn-success"
+                <button *ngIf="current_user?.user_type === 4" (click)="openReportModal()" type="button" class="btn btn-sm btn-success"
                     data-bs-toggle="tooltip" title="Reportar Pago">
                     Reportar <i class="far fa-flag"></i>
                 </button>
