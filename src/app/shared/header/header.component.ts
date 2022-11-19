@@ -3,6 +3,8 @@ import { AuthService } from 'src/app/auth/services/auth.service';
 import { SweetAlert } from '../utils/Sweet-Alert';
 import { ToastrService } from 'ngx-toastr';
 import { Router } from '@angular/router';
+import { MatDialog } from '@angular/material/dialog';
+import { ChangePasswordComponent } from './change-password/change-password.component';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -11,18 +13,24 @@ import { Router } from '@angular/router';
 export class HeaderComponent implements OnInit {
 
 
-  constructor(private authServices : AuthService,
-              private router: Router,
-              private _toastService: ToastrService) { }
-  get user(){
+  constructor(
+    private authServices: AuthService,
+    private router: Router,
+    private _toastService: ToastrService,
+    private _dialog: MatDialog,
+    ) { }
+    
+  get user() {
     return this.authServices.user
   }
   sweetAlrt = new SweetAlert
-  
+
   ngOnInit(): void {
   }
 
-
+  openChangePasswordModal() {
+    this._dialog.open(ChangePasswordComponent)
+  }
   logout() {
     this.sweetAlrt.AlertConfirm("Cerrar Sesión", "¿Está seguro de salir de la aplicación?", "question").then(res => {
       if (res) {

@@ -14,6 +14,8 @@ import { StatusPipe } from '../pipes/status.pipe';
 import { PaymentStatusPipe } from '../pipes/payment-status.pipe';
 import { ErrorsComponent } from './errors/errors.component';
 import { NgxSpinnerModule } from "ngx-spinner";
+import { ReactiveFormsModule } from '@angular/forms';
+import { ChangePasswordComponent } from './header/change-password/change-password.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,8 @@ import { NgxSpinnerModule } from "ngx-spinner";
     PaginatorComponent,
     StatusPipe,
     PaymentStatusPipe,
-    ErrorsComponent
+    ErrorsComponent,
+    ChangePasswordComponent
   ],
   imports: [
     CommonModule,
@@ -33,6 +36,7 @@ import { NgxSpinnerModule } from "ngx-spinner";
     SharedRoutingModule,
     MatPaginatorModule,
     NgxSpinnerModule,
+    ReactiveFormsModule
   ],
   exports:[
     LayoutComponent,
