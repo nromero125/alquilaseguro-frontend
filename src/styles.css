@@ -60,6 +60,10 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   height: 100%;
 }
 
+.pointer{
+    cursor: pointer;
+}
+
 .w-500{
   width: 500px;
 }
@@ -354,4 +358,11 @@ a.active-btn > i {
   100% {
       transform: rotate(360deg)
   }
+}
+
+
+@media (max-width:1970px) {
+  .bg-image-custom {
+    background-size: cover !important;
+}
 }

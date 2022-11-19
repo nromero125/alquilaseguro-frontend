@@ -30,6 +30,8 @@ export class PaymentsComponent implements OnInit, AfterContentInit, AfterContent
   ngOnInit(): void {
     this.getData()
   }
+
+  
   ngAfterViewChecked(): void {
     this._changeDet.detectChanges()
   }

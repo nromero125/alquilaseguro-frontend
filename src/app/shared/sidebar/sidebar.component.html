@@ -3,36 +3,7 @@
         <!-- Sidebar Content -->
         <div class="sidebar-content">
           <!-- Side Header -->
-          <div class="content-header justify-content-lg-center img-container">
-            <!-- Logo -->
-            <div>
-              <span class="smini-visible fw-bold tracking-wide fs-lg">
-                c<span class="text-primary">b</span>
-              </span>
-              <a class="link-fx fw-bold tracking-wide mx-auto " routerLink="/user/home">
-              <!--   <span class="smini-hidden">
-                  <i class="fa fa-fire text-tangerine"></i>
-                  <span class="fs-4 text-white">Logo</span><span class="fs-4 text-tangerine">Alquila</span>
-                </span> -->
-                <div class="text-center d-flex justify-content-center ">
-                  <img src="/assets/media/PNG/AlquilaSeguro_Logo-01.png" class="img-fluid" style="width:150px;" alt="Logo">
-                 <!--  <h1 class="h3 fw-bold mt-4 mb-1 text-center">Alquila Seguros</h1> -->
-                </div>
-              </a>
-            </div>
-            <!-- END Logo -->
-  
-            <!-- Options -->
-            <div>
-              <!-- Close Sidebar, Visible only on mobile screens -->
-              <!-- Layout API, functionality initialized in Template._uiApiLayout() -->
-              <button type="button" class="btn btn-sm btn-alt-danger d-lg-none" data-toggle="layout" data-action="sidebar_close">
-                <i class="fa fa-fw fa-times"></i>
-              </button>
-              <!-- END Close Sidebar -->
-            </div>
-            <!-- END Options -->
-          </div>
+    
           <!-- END Side Header -->
   
           <!-- Sidebar Scrolling -->
@@ -41,25 +12,11 @@
             <div class="content-side content-side-user px-0 py-0">
               <!-- Visible only in normal mode -->
               <div class="smini-hidden text-center mx-auto">
-          <!--       <a class="img-link">
-                  <img class="img-avatar  " src="/assets/media/Profile_Picture/AlquilaSeguro_Logo-PP_-04.png" alt="Avatar">
-                </a> -->
-             
-                <ul class="list-inline mb-0">
-                  <li class="list-inline-item">
-                    <a class="link-fx text-dual fs-sm fw-semibold text-uppercase" >{{user.name}}</a>
-                  </li>
-            <!--       <li class="list-inline-item">
-                    <a class="link-fx text-dual" data-toggle="layout" data-action="dark_mode_toggle" href="javascript:void(0)">
-                      <i class="fa fa-burn"></i>
-                    </a>
-                  </li> -->
-                  <li class="list-inline-item">
-                    <a class="link-fx text-dual" type="button" (click)="logout()">
-                      <i class="fa fa-sign-out-alt"></i>
-                    </a>
-                  </li>
-                </ul>
+                <div class="text-center d-flex justify-content-center ">
+                  <img src="/assets/media/PNG/AlquilaSeguro_Logo-01.png" class="img-fluid" style="width:200px;" alt="Logo">
+                 <!--  <h1 class="h3 fw-bold mt-4 mb-1 text-center">Alquila Seguros</h1> -->
+                </div>
+          
               </div>
               <!-- END Visible only in normal mode -->
             </div>
@@ -68,7 +25,7 @@
             <!-- Side Navigation -->
             <div class="content-side content-side-full">
               <ul class="nav-main">
-                <li class="nav-main-heading"></li>
+                <li class="nav-main-heading">Opciones de Usuario</li>
                 <li  *ngIf="user.user_type" class="nav-main-item">
                   <a class="nav-main-link"  routerLinkActive="active-btn" routerLink="/user/home">
                     <i class="nav-main-link-icon fa fa-home"></i>

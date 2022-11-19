@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { AuthService } from '../auth/services/auth.service';
@@ -15,6 +15,13 @@ export class UsersService {
 
   getUsers(){
     return this._http.get(`${this.apiUrl}/users`)
+  }
+
+  getUser(){
+    const url =`${`${this.apiUrl}/user`}`;
+    const headers = new HttpHeaders()
+    .set('Authorization', `Bearer ${localStorage.getItem('token') || ''}`);
+    return this._http.get(url,{ headers });
   }
 
   createUser(userMdoel:BrokerUser){

@@ -1,89 +1,89 @@
 <aside id="side-overlay">
-    <!-- Side Header -->
-    <div class="content-header">
-      <!-- User Avatar -->
-   <!--    <a class="img-link me-2" href="be_pages_generic_profile.html">
-        <img class="img-avatar img-avatar32" src="assets/media/avatars/avatar15.jpg" alt="">
-      </a> -->
-      <!-- END User Avatar -->
+  <!-- Side Header -->
+  <div class="content-header">
+    <!-- User Avatar -->
+ <!--    <a class="img-link me-2" href="be_pages_generic_profile.html">
+      <img class="img-avatar img-avatar32" src="assets/media/avatars/avatar15.jpg" alt="">
+    </a> -->
+    <!-- END User Avatar -->
 
-      <!-- User Info -->
-      <a class="link-fx text-body-color-dark fw-semibold fs-sm">
-       {{user.name}}
-      </a>
-      <!-- END User Info -->
+    <!-- User Info -->
+    <a class="link-fx text-body-color-dark fw-semibold fs-sm">
+     {{user.name}}
+    </a>
+    <!-- END User Info -->
 
-      <!-- Close Side Overlay -->
-      <!-- Layout API, functionality initialized in Template._uiApiLayout() -->
-      <button type="button" class="btn btn-sm btn-alt-danger ms-auto" data-toggle="layout" data-action="side_overlay_close">
-        <i class="fa fa-fw fa-times"></i>
-      </button>
-      <!-- END Close Side Overlay -->
-    </div>
-    <!-- END Side Header -->
+    <!-- Close Side Overlay -->
+    <!-- Layout API, functionality initialized in Template._uiApiLayout() -->
+    <button type="button" class="btn btn-sm btn-alt-danger ms-auto" data-toggle="layout" data-action="side_overlay_close">
+      <i class="fa fa-fw fa-times"></i>
+    </button>
+    <!-- END Close Side Overlay -->
+  </div>
+  <!-- END Side Header -->
 
-    <!-- Side Content -->
-    <div class="content-side ">
+  <!-- Side Content -->
+  <div class="content-side ">
 
-      <!-- Profile -->
-      <div class="block pull-x block-mode-hidden">
-        <div class="block-header bg-body-light">
-          <h3 class="block-title">
-            <i class="fa fa-fw fa-pencil-alt opacity-50 me-1"></i> Cambiar contraseña
-          </h3>
-          <div class="block-options">
-            <button type="button" class="btn-block-option" data-toggle="block-option" data-action="content_toggle"></button>
-          </div>
-        </div>
-        <div class="block-content block-content-full">
-          <form action="be_pages_dashboard.html" method="POST" onsubmit="return false;">
-        <!--     <div class="mb-3">
-              <label class="form-label" for="side-overlay-profile-name">Name</label>
-              <div class="input-group">
-                <input type="text" class="form-control" id="side-overlay-profile-name" name="side-overlay-profile-name" placeholder="Your name.." value="John Smith">
-                <span class="input-group-text">
-                  <i class="fa fa-user"></i>
-                </span>
-              </div>
-            </div>
-            <div class="mb-3">
-              <label class="form-label" for="side-overlay-profile-email">Email</label>
-              <div class="input-group">
-                <input type="email" class="form-control" id="side-overlay-profile-email" name="side-overlay-profile-email" placeholder="Your email.." value="john.smith@example.com">
-                <span class="input-group-text">
-                  <i class="fa fa-envelope"></i>
-                </span>
-              </div>
-            </div> -->
-            <div class="mb-3">
-              <label class="form-label" for="side-overlay-profile-password">New Password</label>
-              <div class="input-group">
-                <input type="password" [autocomplete]="false" class="form-control" id="side-overlay-profile-password" name="side-overlay-profile-password" placeholder="New Password..">
-                <span class="input-group-text">
-                  <i class="fa fa-asterisk"></i>
-                </span>
-              </div>
-            </div>
-            <div class="mb-4">
-              <label class="form-label" for="side-overlay-profile-password-confirm">Confirm New Password</label>
-              <div class="input-group">
-                <input type="password" [autocomplete]="false" class="form-control" id="side-overlay-profile-password-confirm" name="side-overlay-profile-password-confirm" placeholder="Confirm New Password..">
-                <span class="input-group-text">
-                  <i class="fa fa-asterisk"></i>
-                </span>
-              </div>
-            </div>
-            <div class="row">
-              <div class="">
-                <button type="submit" class="btn  bg-tangerine w-100">
-                  <i class="fa fa-sync opacity-50 me-1"></i> Update
-                </button>
-              </div>
-            </div>
-          </form>
+    <!-- Profile -->
+    <div class="block pull-x block-mode-hidden">
+      <div class="block-header bg-body-light">
+        <h3 class="block-title">
+          <i class="fa fa-fw fa-pencil-alt opacity-50 me-1"></i> Cambiar contraseña
+        </h3>
+        <div class="block-options">
+          <button type="button" class="btn-block-option" data-toggle="block-option" data-action="content_toggle"></button>
         </div>
       </div>
-      <!-- END Profile -->
+      <div class="block-content block-content-full">
+        <form action="be_pages_dashboard.html" method="POST" onsubmit="return false;">
+      <!--     <div class="mb-3">
+            <label class="form-label" for="side-overlay-profile-name">Name</label>
+            <div class="input-group">
+              <input type="text" class="form-control" id="side-overlay-profile-name" name="side-overlay-profile-name" placeholder="Your name.." value="John Smith">
+              <span class="input-group-text">
+                <i class="fa fa-user"></i>
+              </span>
+            </div>
+          </div>
+          <div class="mb-3">
+            <label class="form-label" for="side-overlay-profile-email">Email</label>
+            <div class="input-group">
+              <input type="email" class="form-control" id="side-overlay-profile-email" name="side-overlay-profile-email" placeholder="Your email.." value="john.smith@example.com">
+              <span class="input-group-text">
+                <i class="fa fa-envelope"></i>
+              </span>
+            </div>
+          </div> -->
+          <div class="mb-3">
+            <label class="form-label" for="side-overlay-profile-password">New Password</label>
+            <div class="input-group">
+              <input type="password" [autocomplete]="false" class="form-control" id="side-overlay-profile-password" name="side-overlay-profile-password" placeholder="New Password..">
+              <span class="input-group-text">
+                <i class="fa fa-asterisk"></i>
+              </span>
+            </div>
+          </div>
+          <div class="mb-4">
+            <label class="form-label" for="side-overlay-profile-password-confirm">Confirm New Password</label>
+            <div class="input-group">
+              <input type="password" [autocomplete]="false" class="form-control" id="side-overlay-profile-password-confirm" name="side-overlay-profile-password-confirm" placeholder="Confirm New Password..">
+              <span class="input-group-text">
+                <i class="fa fa-asterisk"></i>
+              </span>
+            </div>
+          </div>
+          <div class="row">
+            <div class="">
+              <button type="submit" class="btn  bg-tangerine w-100">
+                <i class="fa fa-sync opacity-50 me-1"></i> Update
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
     </div>
-    <!-- END Side Content -->
-  </aside>
+    <!-- END Profile -->
+  </div>
+  <!-- END Side Content -->
+</aside>
