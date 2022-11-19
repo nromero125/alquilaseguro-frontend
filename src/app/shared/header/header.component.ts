@@ -5,6 +5,8 @@ import { ToastrService } from 'ngx-toastr';
 import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 import { ChangePasswordComponent } from './change-password/change-password.component';
+
+declare const init: any;
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -50,4 +52,5 @@ export class HeaderComponent implements OnInit {
     })
 
   }
+
 }

@@ -31,7 +31,6 @@ export class CreateClaimModalComponent implements OnInit {
 
 
   ngOnInit(): void {
-    console.log(this.autService.user)
   }
 
   onImageSelected(images: any) {

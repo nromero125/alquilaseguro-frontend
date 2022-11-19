@@ -32,7 +32,6 @@ export class CreateUserComponent implements OnInit {
 
   ngOnInit(): void {
     if (this.data.isEditing) {
-      console.log(this.data.user);
       this.getUserForEditing()
     }
   }

@@ -27,7 +27,8 @@ import { ChangePasswordComponent } from './header/change-password/change-passwor
     StatusPipe,
     PaymentStatusPipe,
     ErrorsComponent,
-    ChangePasswordComponent
+    ChangePasswordComponent,
+
   ],
   imports: [
     CommonModule,
