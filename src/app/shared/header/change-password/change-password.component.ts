@@ -59,8 +59,8 @@ export class ChangePasswordComponent implements OnInit {
       this.updatePasswordForm.reset()
       this.updatePasswordDTO = new UpdatePassword()
       },
-      error(err) {
-        console.log(err);
+      error: (err)=> {
+        this._toastService.success('La contraseña provista no concuerda con su contraseña actual', 'Ha ocurrido un error tratando de actulizar su contraseña')
       }
     })
   }
