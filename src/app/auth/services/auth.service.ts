@@ -12,6 +12,7 @@ export class AuthService {
 
   private baseUrl: string = environment.baseUrl;
   private _user!: any;
+  private _userProperty!: any;
 
   get user() {
     return { ...this._user };
@@ -29,8 +30,7 @@ export class AuthService {
         tap(resp => {
           if (resp.token !== undefined) {
             localStorage.setItem('token', resp.token);
-            this._user = resp.user
-            
+            this._user = resp.user;
           }
         }),
         map(resp => resp),
@@ -50,6 +50,7 @@ export class AuthService {
       .pipe(
         map(resp => {
           this._user = resp
+          console.log(resp);
           document.getElementById('page-container')?.classList.add('sidebar-o')
           return true
         }),

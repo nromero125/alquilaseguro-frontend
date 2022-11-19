@@ -3,12 +3,20 @@
     <div class="py-3 px-3">
         <form [formGroup]="paymentForm">
             <div class="mb-4">
+                <label class="form-label" for="example-select">Propiedad<span
+                    class="text-danger text-monospace legend"> *</span></label>
+                <select class="form-select" id="example-select" name="example-select" formControlName="property_id">
+                    <option [selected]="userPropertyData?.property?.id">{{userPropertyData?.property?.name}}</option>
+                </select>
+              </div>
+            <div class="mb-4">
                 <label class="form-label" for="example-text-input">Cantidad a Pagar <span
                         class="text-danger text-monospace legend">*</span></label>
                 <input placeholder="0.00" type="text" currencyMask [options]="{precision:2}" formControlName="amount"
                     class="form-control" id="example-text-input">
                     <app-errors [controlName]="paymentForm.controls['amount']"></app-errors>
             </div>
+
             <div class="mb-4">
                 <label class="form-label" for="example-text-input">Fecha <span
                         class="text-danger text-monospace legend">*</span></label>

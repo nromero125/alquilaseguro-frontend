@@ -1,5 +1,5 @@
-<div class="row" *ngIf="count">
-    <div class="col-sm-12 col-md-4" *ngIf="count.count_claims!== undefined">
+<div class="row">
+    <div class="col-sm-12 col-md-4" *ngIf="count?.count_claims!== undefined">
       <div class="block block-rounded">
         <div class="block-content block-content-full">
           <div class="py-3 text-center">
@@ -7,12 +7,12 @@
               <i class="fa fa-4x fa-rectangle-list text-primary"></i>
             </div>
             <div class="fs-4 fw-semibold mb-2">Reclamaciones</div>
-            <div class="text-muted">{{count.count_claims | number}}</div>
+            <div class="text-muted">{{count?.count_claims  || 0 | number}}</div>
           </div>
         </div>
       </div>
     </div>
-    <div class="col-sm-12 col-md-4" *ngIf="count.count_payments!== undefined">
+    <div class="col-sm-12 col-md-4" *ngIf="count?.count_payments!== undefined">
       <div class="block block-rounded">
         <div class="block-content block-content-full">
           <div class="py-3 text-center">
@@ -20,12 +20,12 @@
               <i class="fa fa-4x fa-money-bill-trend-up text-success"></i>
             </div>
             <div class="fs-4 fw-semibold mb-2">Pagos</div>
-            <div class="text-muted">{{count.count_payments | number}}</div>
+            <div class="text-muted">{{count?.count_payments  || 0 | number}}</div>
           </div>
         </div>
       </div>
     </div>
-    <div class="col-sm-12 col-md-4" *ngIf="count.count_late_payments!== undefined">
+    <div class="col-sm-12 col-md-4" *ngIf="count?.count_late_payments!== undefined">
       <div class="block block-rounded">
         <div class="block-content block-content-full">
           <div class="py-3 text-center">
@@ -33,12 +33,12 @@
               <i class="fa fa-4x fa-money-bill-wheat text-danger"></i>
             </div>
             <div class="fs-4 fw-semibold mb-2">Pagos tardios</div>
-            <div class="text-muted">{{count.count_late_payments | number}}</div>
+            <div class="text-muted">{{count?.count_late_payments || 0 | number}}</div>
           </div>
         </div>
       </div>
     </div>
-    <div class="col-sm-12 col-md-6"  *ngIf="count.count_properties!== undefined">
+    <div class="col-sm-12 col-md-6"  *ngIf="count?.count_properties!== undefined">
         <div class="block block-rounded">
           <div class="block-content block-content-full">
             <div class="py-3 text-center">
@@ -46,12 +46,12 @@
                 <i class="fa fa-4x fa-building text-primary"></i>
               </div>
               <div class="fs-4 fw-semibold mb-2">Propiedades</div>
-              <div class="text-muted">{{count.count_properties | number}}</div>
+              <div class="text-muted">{{count?.count_properties || 0 | number}}</div>
             </div>
           </div>
         </div>
       </div>
-      <div class="col-sm-12 col-md-6" *ngIf="count.count_received_payments!== undefined" >
+      <div class="col-sm-12 col-md-6" *ngIf="count?.count_received_payments!== undefined" >
         <div class="block block-rounded">
           <div class="block-content block-content-full">
             <div class="py-3 text-center">
@@ -59,9 +59,10 @@
                 <i class="fa fa-4x fa-money-bill-transfer text-success"></i>
               </div>
               <div class="fs-4 fw-semibold mb-2">Pagos recibidos</div>
-              <div class="text-muted">{{count.count_received_payments | number}}</div>
+              <div class="text-muted">{{count?.count_received_payments  || 0 | number}}</div>
             </div>
           </div>
         </div>
       </div>
   </div>
+

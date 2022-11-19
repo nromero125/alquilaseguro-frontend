@@ -15611,13 +15611,13 @@ a.item.item-link-pop:active {
 
 .bg-image {
   background-position: 0% 50%;
-  background-size: cover;
+  
 }
 
 .bg-image-custom {
-  background-position: 0% 50%;
-  background: no-repeat;
-  background-size: auto;
+  background-size: contain;
+
+  background-repeat: no-repeat;
 }
 
 .bg-image-top {

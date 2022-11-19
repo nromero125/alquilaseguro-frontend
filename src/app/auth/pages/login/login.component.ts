@@ -11,7 +11,7 @@ import Swal from 'sweetalert2';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  emailPattern: string = "^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$";
+  emailPattern: string = "^[a-z A-Z 0-9._%+-]+@[a-z0-9.-]+\\.[a-z A-Z]{2,4}$";
 
 
 
@@ -44,7 +44,7 @@ export class LoginComponent implements OnInit {
 
   this.authServices.login( email, password ).subscribe({
     next:( resp )=> {
-      //console.log(resp);
+      console.log(resp);
      if(resp.hasOwnProperty('token')){
       this.router.navigateByUrl('/home')
      }else{
