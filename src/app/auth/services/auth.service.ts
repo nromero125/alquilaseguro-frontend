@@ -2,6 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { catchError, map, retry, tap } from 'rxjs/operators';
+import { UpdatePassword } from 'src/app/interfaces/updatePassword-interfaces';
 import { environment } from 'src/environments/environment';
 import { AuthResponce, resetPasswordModel, UserAuth } from '../interfaces/interfaces';
 
@@ -68,6 +69,10 @@ export class AuthService {
   
   resetPassword(resetModel: resetPasswordModel){
     return this.http.post(`${this.baseUrl}/password/reset`, resetModel)
+  }
+
+  updatePassword(updateModel: UpdatePassword){
+    return this.http.post(`${this.baseUrl}/auth/update-password`, updateModel)
   }
 
 }
