@@ -46,7 +46,6 @@ export class ClamisDetailsComponent implements OnInit {
     this._claimsService.getDetails(this.claimId).subscribe({
       next: (res: any) => {
         this.claimDetails = res
-        console.log(this.claimDetails)
         this.loadGalleryPlugin()
       },
       error: (err: any) => {

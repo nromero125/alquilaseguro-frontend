@@ -51,7 +51,6 @@ export class AuthService {
       .pipe(
         map(resp => {
           this._user = resp
-          console.log(resp);
           document.getElementById('page-container')?.classList.add('sidebar-o')
           return true
         }),

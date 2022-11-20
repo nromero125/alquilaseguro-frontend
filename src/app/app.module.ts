@@ -30,6 +30,7 @@ import { ToastrModule } from 'ngx-toastr';
     NgxMaskModule.forRoot(),
     CurrencyMaskModule,
     ToastrModule.forRoot(),
+  
   ],
   
   providers: [{ provide: HTTP_INTERCEPTORS, useClass: InterceptorService, multi: true }],

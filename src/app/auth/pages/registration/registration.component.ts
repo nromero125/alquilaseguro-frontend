@@ -21,7 +21,6 @@ export class RegistrationComponent implements OnInit {
     this._authService.sendResettingEmail({email:this.email}).subscribe({
       next:(res:any)=>{
         this._toastService.success(res.message, 'Enlace enviado')
-        console.log(res);
       },
       error:(err:any)=>{
         this._toastService.error('El correo es inválido o aún no ha sido verificado', 'Correo Inválido')

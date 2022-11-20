@@ -26,35 +26,26 @@
   <div class="content-side ">
 
     <!-- Profile -->
-    <div class="block pull-x block-mode-hidden">
-      <div class="block-header bg-body-light">
-        <h3 class="block-title">
-          <i class="fa fa-fw fa-pencil-alt opacity-50 me-1"></i> Cambiar contraseña
+    <div class="block pull-x block-mode-hidden px-3">
+        <h3 class="block-title mb-4">
+          <a  (click)="openChangePasswordModal()"  class="dropdown-item d-flex align-items-center justify-content-between space-x-1  pointer" >
+            <span>Cambiar contraseña</span>
+            <i class="fa fa-user-lock opacity-25"></i>
+          </a>
         </h3>
-        <div class="block-options">
-          <button type="button" class="btn-block-option" data-toggle="block-option" data-action="content_toggle"></button>
-        </div>
-      </div>
+        <h3 class="block-title">
+          <a class="dropdown-item d-flex align-items-center justify-content-between space-x-1 pointer"  (click)="logout()">
+            <span>Salir</span>
+            <i class="fa fa-fw fa-sign-out-alt opacity-25"></i>
+          </a>
+        </h3>
+    
       <div class="block-content block-content-full">
-        <form action="be_pages_dashboard.html" method="POST" onsubmit="return false;">
-      <!--     <div class="mb-3">
-            <label class="form-label" for="side-overlay-profile-name">Name</label>
-            <div class="input-group">
-              <input type="text" class="form-control" id="side-overlay-profile-name" name="side-overlay-profile-name" placeholder="Your name.." value="John Smith">
-              <span class="input-group-text">
-                <i class="fa fa-user"></i>
-              </span>
-            </div>
-          </div>
-          <div class="mb-3">
-            <label class="form-label" for="side-overlay-profile-email">Email</label>
-            <div class="input-group">
-              <input type="email" class="form-control" id="side-overlay-profile-email" name="side-overlay-profile-email" placeholder="Your email.." value="john.smith@example.com">
-              <span class="input-group-text">
-                <i class="fa fa-envelope"></i>
-              </span>
-            </div>
-          </div> -->
+       
+        <div class="dropdown-divider"></div>
+        
+        <!-- <form action="be_pages_dashboard.html" method="POST" onsubmit="return false;">
+
           <div class="mb-3">
             <label class="form-label" for="side-overlay-profile-password">New Password</label>
             <div class="input-group">
@@ -80,7 +71,7 @@
               </button>
             </div>
           </div>
-        </form>
+        </form> -->
       </div>
     </div>
     <!-- END Profile -->

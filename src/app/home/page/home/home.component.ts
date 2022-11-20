@@ -10,22 +10,25 @@ import { HomeService } from 'src/app/services/home.service';
 })
 export class HomeComponent implements OnInit {
 
-  constructor( private homeService : HomeService,
-              private authService: AuthService) {
-                this.current_user = authService.user
-    }
+  constructor( private homeService : HomeService)
+  {}
   
-  current_user: any;
+
   count!: CountHome;
 
   ngOnInit(): void {
-    console.log( this.current_user);
     this.homeService.getCountsHome().subscribe({
       next:(res)=>{
          this.count = res
       },
       error:(res)=>{
-        console.log(res);
+        this.count={
+          count_claims:0,
+          count_late_payments:0,
+          count_payments:0,
+          count_properties:0,
+          count_received_payments: 0
+        }
       }
     })
   }
