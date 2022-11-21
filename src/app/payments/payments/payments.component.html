@@ -31,7 +31,7 @@
                 <tbody>
                     <tr *ngFor="let payment of paginatedPaymentsList">
                         <th class="text-center" scope="row">{{payment.id}}</th>
-                        <td>{{payment.paid_at | date:'dd/mm/yyyy'}}</td>
+                        <td>{{payment.paid_at | date:'dd/MM/yyyy'}}</td>
                         <td>{{payment.amount | currency}}</td>
                         <td  *ngIf="current_user?.user_type === 4">
                             <span [class]="payment.is_late === 0? 'text-success': 'text-danger'" >{{payment.is_late === 0 ?'A tiempo':'Tardio' }}<i [class]=" payment.is_late === 0 ? 'fa fa-1x ms-2 fa-arrow-trend-up': ' ms-2 fa fa-1x fa-arrow-trend-down ' "></i> </span>
