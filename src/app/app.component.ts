@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-/* declare const init: any; */
+declare const init: any;
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -12,7 +12,7 @@ export class AppComponent implements OnInit {
    
   }
   ngOnInit(): void {
-  /*   init(); */
+    init();
   }
  
 }

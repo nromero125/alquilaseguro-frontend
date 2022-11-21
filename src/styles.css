@@ -360,9 +360,17 @@ a.active-btn > i {
   }
 }
 
+@media (max-width:742px) {
+  .change-password-container{
+   width: auto !important;
+}
+}
+
 
 @media (max-width:1970px) {
   .bg-image-custom {
     background-size: cover !important;
 }
+
+
 }

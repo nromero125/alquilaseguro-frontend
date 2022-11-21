@@ -67,7 +67,7 @@ export class ChangePasswordComponent implements OnInit {
     })
   }
 
-  closeModal() {
+  closeModal(){
     this.dialogRef.close()
   }
 
