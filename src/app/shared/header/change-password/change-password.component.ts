@@ -21,17 +21,19 @@ export class ChangePasswordComponent implements OnInit {
   }, { validators: this.confirmPassword })
 
   constructor(
-    private _authService: AuthService, 
+    private _authService: AuthService,
     private _toastService: ToastrService,
     public dialogRef: MatDialogRef<ChangePasswordComponent>
-  ) { }
+  ) {
+    dialogRef.disableClose = true
+  }
 
   ngOnInit(): void {
   }
 
 
   confirmPassword(updatePasswordForm: AbstractControl) {
-    if (updatePasswordForm.get('confirmPassword')?.dirty || updatePasswordForm.get('confirmPassword')?.touched){    
+    if (updatePasswordForm.get('confirmPassword')?.dirty || updatePasswordForm.get('confirmPassword')?.touched) {
       if (updatePasswordForm.get('confirmPassword')?.value !== updatePasswordForm.get('password')?.value) {
         return { invalid: true, errorMsg: 'Las contraseñas no coinciden' };
       }
@@ -48,25 +50,25 @@ export class ChangePasswordComponent implements OnInit {
     }
 
     this.updatePasswordDTO = {
-      current_password:this.updatePasswordForm.get('current_password')?.value ?? '',
+      current_password: this.updatePasswordForm.get('current_password')?.value ?? '',
       password: this.updatePasswordForm.get('password')?.value ?? '',
       password_confirmation: this.updatePasswordForm.get('confirmPassword')?.value ?? '',
     }
 
     this._authService.updatePassword(this.updatePasswordDTO).subscribe({
-      next: (res:any)=>{
-      this._toastService.success('Su contraseña ha sido actulizada con éxito')
-      this.updatePasswordForm.reset()
-      this.updatePasswordDTO = new UpdatePassword()
+      next: (res: any) => {
+        this._toastService.success('Su contraseña ha sido actulizada con éxito')
+        this.updatePasswordForm.reset()
+        this.updatePasswordDTO = new UpdatePassword()
       },
-      error: (err)=> {
+      error: (err) => {
         this._toastService.success('La contraseña provista no concuerda con su contraseña actual', 'Ha ocurrido un error tratando de actulizar su contraseña')
       }
     })
   }
 
-  closeModal(){
-
+  closeModal() {
+    this.dialogRef.close()
   }
 
 }

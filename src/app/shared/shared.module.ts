@@ -16,6 +16,7 @@ import { ErrorsComponent } from './errors/errors.component';
 import { NgxSpinnerModule } from "ngx-spinner";
 import { ReactiveFormsModule } from '@angular/forms';
 import { ChangePasswordComponent } from './header/change-password/change-password.component';
+import {MatMenuModule} from '@angular/material/menu';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,9 @@ import { ChangePasswordComponent } from './header/change-password/change-passwor
     SharedRoutingModule,
     MatPaginatorModule,
     NgxSpinnerModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatMenuModule
+    
   ],
   exports:[
     LayoutComponent,
