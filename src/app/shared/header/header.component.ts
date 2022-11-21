@@ -6,7 +6,7 @@ import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 import { ChangePasswordComponent } from './change-password/change-password.component';
 
-declare const init: any;
+declare const drop: any;
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -28,6 +28,7 @@ export class HeaderComponent implements OnInit {
   sweetAlrt = new SweetAlert
 
   ngOnInit(): void {
+    drop();
   }
 
   openChangePasswordModal() {
@@ -52,5 +53,7 @@ export class HeaderComponent implements OnInit {
     })
 
   }
+
+
 
 }

@@ -24,7 +24,9 @@ export class ChangePasswordComponent implements OnInit {
     private _authService: AuthService, 
     private _toastService: ToastrService,
     public dialogRef: MatDialogRef<ChangePasswordComponent>
-  ) { }
+  ) { 
+    
+  }
 
   ngOnInit(): void {
   }
@@ -66,7 +68,7 @@ export class ChangePasswordComponent implements OnInit {
   }
 
   closeModal(){
-
+    this.dialogRef.close()
   }
 
 }
