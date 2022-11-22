@@ -8,15 +8,32 @@ import { Properties } from '../interfaces/property-interfaces';
   providedIn: 'root'
 })
 export class BrokersService {
-  apiUrl =  environment.baseUrl
+  apiUrl = environment.baseUrl
   constructor(private _http: HttpClient) { }
 
 
-  getTenantProperties():Observable<any>{
-    return this._http.get<any>(`${this.apiUrl}/broker/properties`)
+  getPropertiesDetails(idProperty: number): Observable<Properties> {
+    return this._http.get<Properties>(`${this.apiUrl}/properties/${idProperty}`)
   }
 
-  getPropertiesDetails(idProperty:number):Observable<Properties>{
+
+  getProperties(userType: number) {
+
+    switch (userType) {
+      case 5:
+        return this._http.get<any>(`${this.apiUrl}/broker/properties`)
+      case 3:
+        return this._http.get<any>(`${this.apiUrl}/owner/properties`)
+    }
+
+    return null
+  }
+
+  getPropertyDetails(userType: number, idProperty: number) {
+    if (userType === 3) {
+      return this._http.get<Properties>(`${this.apiUrl}/owner/properties/${idProperty}`)
+    }
+
     return this._http.get<Properties>(`${this.apiUrl}/properties/${idProperty}`)
   }
 

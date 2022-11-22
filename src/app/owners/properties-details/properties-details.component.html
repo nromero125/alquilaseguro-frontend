@@ -52,7 +52,8 @@
             <div class="d-flex gap-5 flex-wrap " style="font-weight: 500;">
                 <div>
                     <h5 class="text-dark mb-1 title-details">Nombre:</h5>
-                    <span *ngIf="propertyDetails">{{propertyDetails.broker.firstname}} {{propertyDetails.broker.lastname}}</span>
+                    <span *ngIf="propertyDetails?.broker">{{propertyDetails.broker.firstname}} {{propertyDetails.broker.lastname}}</span>
+                    <span *ngIf="propertyDetails?.owner">{{propertyDetails.owner.firstname}} {{propertyDetails.owner.lastname}}</span>
                 </div>
     
                 <div>

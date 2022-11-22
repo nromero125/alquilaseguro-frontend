@@ -1,4 +1,5 @@
 import { AfterContentChecked, ChangeDetectorRef, Component, OnInit } from '@angular/core';
+import { AuthService } from 'src/app/auth/services/auth.service';
 import { BrokersService } from 'src/app/services/brokers.service';
 @Component({
   selector: 'app-owners',
@@ -7,27 +8,33 @@ import { BrokersService } from 'src/app/services/brokers.service';
 })
 export class OwnersComponent implements OnInit, AfterContentChecked {
 
-  
-  propertiesList:any []=[];
-  paginatedPropertyList:any []=[];
 
-  constructor(private brokerService:BrokersService,
-              private ref: ChangeDetectorRef) { }
+  propertiesList: any[] = [];
+  paginatedPropertyList: any[] = [];
+  current_user: any
+
+  constructor(
+    private brokerService: BrokersService,
+    private ref: ChangeDetectorRef,
+    private authService: AuthService) 
+    {
+      this.current_user = authService.user
+     }
 
   ngAfterContentChecked() {
-  this.ref.detectChanges();
-  }
-            
-  
-  ngOnInit(): void {
-    this.getClaimsData()
+    this.ref.detectChanges();
   }
 
-  
-  getClaimsData(){
-    this.brokerService.getTenantProperties().subscribe({
+
+  ngOnInit(): void {
+    this.getPropertiesData()
+  }
+
+
+  getPropertiesData() {
+    this.brokerService.getProperties(this.current_user?.user_type)?.subscribe({
       next: (res: any) => {
-        this.propertiesList= res.data
+        this.propertiesList = res
       }
     })
   }

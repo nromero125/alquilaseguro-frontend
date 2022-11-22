@@ -9,24 +9,37 @@ import { Claims } from '../interfaces/claims-interfaces';
 })
 export class ClaimsService {
 
-  apiUrl =  environment.baseUrl
+  apiUrl = environment.baseUrl
   constructor(private _http: HttpClient) { }
 
 
-  getTenantClaims():Observable<Claims>{
-    return this._http.get<Claims>(`${this.apiUrl}/tenant/claims`)
-  }
+  // getTenantClaims(): Observable<Claims> {
+  //   return this._http.get<Claims>(`${this.apiUrl}/tenant/claims`)
+  // }
 
-  getBrokerClaims():Observable<Claims>{
-    return this._http.get<Claims>(`${this.apiUrl}/broker/claims`)
-  }
+  // getBrokerClaims(): Observable<Claims> {
+  //   return this._http.get<Claims>(`${this.apiUrl}/broker/claims`)
+  // }
 
-  getDetails(claimId:number):Observable<Claims>{
+  getClaims(userType: number) {
+
+    switch (userType) {
+      case 3:
+        return this._http.get<Claims>(`${this.apiUrl}/owner/claims`)
+      case 4:
+        return this._http.get<Claims>(`${this.apiUrl}/tenant/claims`)
+      case 5:
+        return this._http.get<Claims>(`${this.apiUrl}/broker/claims`)
+    }
+
+    return null
+  }
+  getDetails(claimId: number): Observable<Claims> {
     return this._http.get<Claims>(`${this.apiUrl}/claims/${claimId}`)
   }
 
-  createClaim(claimModel:FormData){
-    return this._http.post(`${this.apiUrl}/claims`,claimModel)
+  createClaim(claimModel: FormData) {
+    return this._http.post(`${this.apiUrl}/claims`, claimModel)
   }
 
 

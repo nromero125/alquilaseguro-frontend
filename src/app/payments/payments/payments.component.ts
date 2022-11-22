@@ -45,9 +45,9 @@ export class PaymentsComponent implements OnInit, AfterContentInit, AfterContent
 
   getData() {
 
-    this._paymentsService.getPayments(this.current_user?.user_type).subscribe({
+    this._paymentsService.getPayments(this.current_user?.user_type)?.subscribe({
       next: (res: any) => {
-        this.paymentsList = res.data
+        this.paymentsList = res
       }
     })
   }
