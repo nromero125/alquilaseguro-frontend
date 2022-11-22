@@ -26,20 +26,11 @@ export class ClaimsComponent implements OnInit {
   }
 
   getClaimsData() {
-    if (this.current_user?.user_type != 4) {
-      this.claimsServices.getBrokerClaims().subscribe({
+      this.claimsServices.getClaims(this.current_user?.user_type)?.subscribe({
         next: (res: any) => {
-          this.claimsList = res.data
+          this.claimsList = res
         }
       })
-      return
-    }
-
-    this.claimsServices.getTenantClaims().subscribe({
-      next: (res: any) => {
-        this.claimsList = res.data
-      }
-    })
   }
 
   openCreationModal() {

@@ -28,7 +28,7 @@ export class UserListComponent implements OnInit {
   getUsersList() {
     this._userService.getUsers().subscribe({
       next: (res: any) => {
-        this.usersList = res.data
+        this.usersList = res
       },
       error: (err: any) => {
         this._toastService.error('Ocurrio error cargano la lista de usuarios')

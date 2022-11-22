@@ -1,6 +1,7 @@
 import { AfterContentChecked, ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { AuthService } from 'src/app/auth/services/auth.service';
 import { Payment, Properties } from 'src/app/interfaces/property-interfaces';
 import { BrokersService } from 'src/app/services/brokers.service';
 
@@ -11,33 +12,39 @@ import { BrokersService } from 'src/app/services/brokers.service';
 })
 export class PropertiesDetailsComponent implements OnInit, AfterContentChecked {
 
-  constructor(private brokersService: BrokersService,
-            private routeActive: ActivatedRoute,
-            private _toastService: ToastrService,
-            private ref: ChangeDetectorRef) { }
+  current_user: any
+
+  constructor(
+    private brokersService: BrokersService,
+    private routeActive: ActivatedRoute,
+    private _toastService: ToastrService,
+    private ref: ChangeDetectorRef,
+    private authService: AuthService) {
+    this.current_user = authService.user
+  }
 
   propertyDetails!: Properties;
-  paymentsDetails: Payment[] = []; 
-  paginatedPaymentsDetails: Payment[] = []; 
-  idPropertie!: number ;
+  paymentsDetails: Payment[] = [];
+  paginatedPaymentsDetails: Payment[] = [];
+  idProperty!: number;
 
   ngAfterContentChecked() {
     this.ref.detectChanges();
   }
 
   ngOnInit() {
-    this.idPropertie = this.routeActive.snapshot.params['id'];
+    this.idProperty = this.routeActive.snapshot.params['id'];
 
-    this.brokersService.getPropertiesDetails(this.idPropertie).subscribe({
-      next:(res)=>{
-        if(res){
+    this.brokersService.getPropertyDetails(this.current_user?.user_type, this.idProperty).subscribe({
+      next: (res) => {
+        if (res) {
           this.propertyDetails = res;
           this.paymentsDetails = res.payments
         }
       },
-      error:(err)=>{
+      error: (err) => {
         this._toastService.error('Ha ocurrido un error')
-      return
+        return
       }
     })
   }
