@@ -30,6 +30,8 @@ export class ClaimsService {
         return this._http.get<Claims>(`${this.apiUrl}/tenant/claims`)
       case 5:
         return this._http.get<Claims>(`${this.apiUrl}/broker/claims`)
+      case 7:
+        return this._http.get<Claims>(`${this.apiUrl}/claims`)
     }
 
     return null

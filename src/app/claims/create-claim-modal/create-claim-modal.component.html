@@ -3,6 +3,14 @@
     <div class="py-3 px-3">
         <form [formGroup]="claimForm">
             <div class="mb-4">
+                <label class="form-label" for="example-select">Propiedad<span
+                    class="text-danger text-monospace legend"> *</span></label>
+                <select class="form-select" formControlName="property_id" *ngFor="let property of properties">
+                    <option [value]="property?.id">{{property?.name}}</option>
+                </select>
+                <app-errors [controlName]="claimForm.controls['property_id']"></app-errors>
+              </div>
+            <div class="mb-4">
                 <label class="form-label" for="example-text-input">Descripción <span
                         class="text-danger text-monospace legend">*</span></label>
                 <textarea formControlName="description" class="form-control" id="example-text-input" style="height: 150px;"></textarea>
