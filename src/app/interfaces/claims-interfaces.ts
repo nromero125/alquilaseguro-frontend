@@ -1,10 +1,10 @@
-
-
 export interface Claims {
     id:                 number;
     user_id:            number;
     property_id:        number;
+    insurance_id:       number;
     description:        string;
+    feedback:           string;
     status:             number;
     amount_to_claim:    string;
     created_at:         Date;
@@ -22,23 +22,24 @@ export interface Property {
     broker_id:        number;
     tenant_id:        number;
     real_estate_id:   number;
+    policy_id:        number;
     name:             PropertyName;
     payment_due_date: Date;
     description:      Description;
     code:             string;
-    address:          Address;
+    address:          PropertyAddress;
     status:           number;
     monthly_payment:  string;
     created_at:       Date;
     updated_at:       Date;
 }
 
-export enum Address {
-    The84412AntoniaMountLebsackvilleIL190574017 = "84412 Antonia Mount\nLebsackville, IL 19057-4017",
+export enum PropertyAddress {
+    The7025SanfordFlatHarryportIL746650144 = "7025 Sanford Flat\nHarryport, IL 74665-0144",
 }
 
 export enum Description {
-    EnimAutemTemporibusSunt = "Enim autem temporibus sunt.",
+    AtBeataeRerumFugitLaboreRepellendus = "At beatae rerum fugit labore repellendus.",
 }
 
 export enum PropertyName {
@@ -55,6 +56,8 @@ export interface User {
     created_at:        Date;
     updated_at:        Date;
     deleted_at:        null;
+    tenant:            Tenant;
+    owner:             Owner;
 }
 
 export enum Email {
@@ -62,11 +65,62 @@ export enum Email {
 }
 
 export enum UserName {
-    MrJohnpaulStantonIII = "Mr. Johnpaul Stanton III",
+    EdwardoHermistonDVM = "Edwardo Hermiston DVM",
 }
 
-export interface Link {
-    url:    null | string;
-    label:  string;
-    active: boolean;
+export interface Tenant {
+    id:                  number;
+    user_id:             number;
+    phone_number:        PhoneNumber;
+    status:              number;
+    identification:      string;
+    firstname:           Firstname;
+    lastname:            Lastname;
+    address:             TenantAddress;
+    bank_name:           BankName;
+    bank_account:        BankAccount;
+    contract_start_date: null;
+    contract_end_date:   null;
+    created_at:          Date;
+    updated_at:          Date;
+}
+
+
+export interface Owner {
+    id:                  number;
+    user_id:             number;
+    phone_number:        PhoneNumber;
+    status:              number;
+    identification:      string;
+    firstname:           Firstname;
+    lastname:            Lastname;
+    address:             TenantAddress;
+    bank_name:           BankName;
+    bank_account:        BankAccount;
+    created_at:          Date;
+    updated_at:          Date;
+}
+
+export enum TenantAddress {
+    The6801BoscoExpresswayApt756PortCasimerID372107031 = "6801 Bosco Expressway Apt. 756\nPort Casimer, ID 37210-7031",
+}
+
+export enum BankAccount {
+    The8284477515 = "828.447.7515",
+}
+
+export enum BankName {
+    Llc = "LLC",
+}
+
+export enum Firstname {
+    Inquilino1 = "Inquilino1",
+}
+
+export enum Lastname {
+    Hodkiewicz = "Hodkiewicz",
+}
+
+export enum PhoneNumber {
+    The16235197164 = "+1-623-519-7164",
 }

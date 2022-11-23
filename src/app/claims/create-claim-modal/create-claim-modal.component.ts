@@ -36,6 +36,7 @@ export class CreateClaimModalComponent implements OnInit {
 
   ngOnInit(): void {
     this.getProperties()
+  
   }
 
   getProperties() {

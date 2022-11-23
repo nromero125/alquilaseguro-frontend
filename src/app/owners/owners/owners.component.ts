@@ -32,9 +32,10 @@ export class OwnersComponent implements OnInit, AfterContentChecked {
 
 
   getPropertiesData() {
-    this.brokerService.getProperties(this.current_user?.user_type)?.subscribe({
+    this.brokerService.getProperties()?.subscribe({
       next: (res: any) => {
-        this.propertiesList = res
+        console.log(res);
+        this.propertiesList = res;
       }
     })
   }

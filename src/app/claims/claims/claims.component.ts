@@ -22,12 +22,14 @@ export class ClaimsComponent implements OnInit {
 
 
   ngOnInit(): void {
-    this.getClaimsData()
+    this.getClaimsData();
+  
   }
 
   getClaimsData() {
       this.claimsServices.getClaims(this.current_user?.user_type)?.subscribe({
         next: (res: any) => {
+          console.log(res);
           this.claimsList = res
         }
       })

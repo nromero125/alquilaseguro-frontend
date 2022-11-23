@@ -19,8 +19,9 @@
             <thead>
                 <tr >
                     <th class="text-center" style="width: 50px;"></th>
+                    <th>Nombre</th>
                     <th>Fecha</th>
-                    <th>Monto a reclamar</th>
+                    <th>Monto reclamado</th>
                     <th>Estatus</th>
                     <th>Propiedad</th>
                     <th class="text-center" style="width: 100px;">Acciones</th> 
@@ -29,6 +30,7 @@
             <tbody>
                 <tr *ngFor=" let  claim of  paginatedClaimsList ">
                     <th class="text-center" scope="row">{{claim.id}}</th>
+                    <td>{{claim.user.owner === null? claim.user.tenant.firstname: claim.user.owner.firstname }}</td>
                     <td>{{claim.created_at | date:'dd/MM/yyyy'}}</td>
                     <td>{{claim.amount_to_claim | currency}}</td>
                     <td class="d-none d-sm-table-cell">

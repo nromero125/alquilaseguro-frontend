@@ -5,8 +5,9 @@
             <div class="mb-4">
                 <label class="form-label" for="example-select">Propiedad<span
                     class="text-danger text-monospace legend"> *</span></label>
-                <select class="form-select" formControlName="property_id" *ngFor="let property of properties">
-                    <option [value]="property?.id">{{property?.name}}</option>
+                <select class="form-select" formControlName="property_id">
+                    <option value="">Seleccione una propiedad</option>
+                    <option [value]="property?.id"  *ngFor="let property of properties">{{property?.name}}</option>
                 </select>
                 <app-errors [controlName]="claimForm.controls['property_id']"></app-errors>
               </div>
