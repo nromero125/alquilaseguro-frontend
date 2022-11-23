@@ -44,6 +44,11 @@ export class ClaimsService {
     return this._http.post(`${this.apiUrl}/claims`, claimModel)
   }
 
+  updateClaim(claimModel: any, claimId: number) {
+
+    return this._http.post(`${this.apiUrl}/claims/${claimId}`,claimModel)
+  }
+
 
 }
 

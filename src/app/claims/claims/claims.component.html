@@ -4,10 +4,9 @@
             <i class="nav-main-link-icon fa fa-file-circle-xmark fs-4"></i>
             <h3 class="block-title">Reclamaciones</h3>
         </div>
-    
-        <div class="block-options">
-            <div *ngIf="this.current_user.user_type != 5" class="block-options-item">
-                <button type="button" (click)="openCreationModal()" class="btn btn-sm btn-success" data-bs-toggle="tooltip" title="Nueva Reclamación">
+        <div class="block-options" >
+            <div *ngIf="this.current_user.user_type === 1 || this.current_user.user_type === 3 || this.current_user.user_type === 4 || this.current_user.user_type === 5 || this.current_user.user_type === 6 || this.current_user.user_type === 8 " class="block-options-item">
+                <button type="button" (click)="openCreationModal(null)" class="btn btn-sm btn-success" data-bs-toggle="tooltip" title="Nueva Reclamación">
                     Agregar <i class="far fa-plus  fw-bold"></i>
                 </button>
             </div>
@@ -39,18 +38,19 @@
                     <td>{{claim.property.name}}</td>
                      <td class="text-center">
                         <div class="btn-group">
-                       <!--      <button type="button" class="btn btn-sm btn-outline-warning" data-bs-toggle="tooltip"
+                            <button routerLink="/claims/details/{{claim.id}}" type="button" class="btn btn-sm btn-outline-info js-bs-tooltip-enabled" data-bs-toggle="tooltip"
+                            title="Ver">
+                            <i class="fa fa-eye"></i>
+                        </button>
+                        <button *ngIf="this.current_user.user_type === 7 || this.current_user.user_type === 2"  type="button" class="btn btn-sm btn-outline-warning" data-bs-toggle="tooltip"  (click)="openCreationModal(claim)"
                                 title="Editar">
                                 <i class="fa fa-pencil-alt"></i>
                             </button>
-                            <button type="button" class="btn btn-sm btn-outline-danger" data-bs-toggle="tooltip"
+                             <!--     <button type="button" class="btn btn-sm btn-outline-danger" data-bs-toggle="tooltip"
                                 title="Eliminar">
                                 <i class="fa fa-times"></i>
                             </button> -->
-                            <button routerLink="/claims/details/{{claim.id}}" type="button" class="btn btn-sm btn-outline-info js-bs-tooltip-enabled" data-bs-toggle="tooltip"
-                                title="Ver">
-                                <i class="fa fa-eye"></i>
-                            </button>
+                       
                         </div>
                     </td> 
                 </tr>
