@@ -18,16 +18,15 @@ export class PaymentsService {
   }
 
   getPayments(userType: number) {
-
     switch (userType) {
       case 3:
-        return this._http.get(`${this.apiUrl}/owner/payments`)
+        return this._http.get(`${this.apiUrl}/owner/payments`);
       case 4:
-        return this._http.get(`${this.apiUrl}/tenant/payments`)
+        return this._http.get(`${this.apiUrl}/tenant/payments`);
       case 5:
-        return this._http.get(`${this.apiUrl}/broker/payments`)
+        return this._http.get(`${this.apiUrl}/broker/payments`);
       case 7:
-        return this._http.get(`${this.apiUrl}/insurance/payments`)
+        return this._http.get(`${this.apiUrl}/insurance/payments`);
       default:
         break;
     }

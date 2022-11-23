@@ -17,16 +17,8 @@ export class BrokersService {
   }
 
 
-  getProperties(userType: number) {
-
-    switch (userType) {
-      case 5:
-        return this._http.get<any>(`${this.apiUrl}/broker/properties`)
-      case 3:
-        return this._http.get<any>(`${this.apiUrl}/owner/properties`)
-    }
-
-    return null
+  getProperties() {
+    return this._http.get<any>(`${this.apiUrl}/properties`);
   }
 
   getPropertyDetails(userType: number, idProperty: number) {

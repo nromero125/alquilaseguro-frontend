@@ -6,6 +6,7 @@
                 <label class="form-label" for="example-select">Propiedad<span
                     class="text-danger text-monospace legend"> *</span></label>
                 <select class="form-select" formControlName="property_id" *ngFor="let property of properties">
+                    <option [ngValue]="undefined">Seleccione la propiedad</option>
                     <option [value]="property?.id">{{property?.name}}</option>
                 </select>
                 <app-errors [controlName]="claimForm.controls['property_id']"></app-errors>
