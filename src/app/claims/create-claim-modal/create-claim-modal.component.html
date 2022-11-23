@@ -2,34 +2,53 @@
 <div mat-dialog-content class="mat-dialog-content">
     <div class="py-3 px-3">
         <form [formGroup]="claimForm">
-            <div class="mb-4">
+            <div class="row">
+            <div [class]=" data !== null?' col-xl-12 col-xxl-6': 'col-12'">
                 <label class="form-label" for="example-select">Propiedad<span
                     class="text-danger text-monospace legend"> *</span></label>
                 <select class="form-select" formControlName="property_id">
-                    <option value="">Seleccione una propiedad</option>
+                    <option value="">-- Seleccione una propiedad -- </option>
                     <option [value]="property?.id"  *ngFor="let property of properties">{{property?.name}}</option>
                 </select>
                 <app-errors [controlName]="claimForm.controls['property_id']"></app-errors>
+                <div class="mt-3 mb-3">
+                    <label class="form-label" for="example-text-input">Descripción <span
+                            class="text-danger text-monospace legend">*</span></label>
+                    <textarea formControlName="description" class="form-control" id="example-text-input" style="height: 150px;"></textarea>
+                    <app-errors [controlName]="claimForm.controls['description']"></app-errors>
+                </div>
+                <div class="mb-4">
+                    <label class="form-label" for="example-text-input">Cantidad a reclamar <span
+                            class="text-danger text-monospace legend">*</span></label>
+                    <input placeholder="0.00" type="text" currencyMask [options]="{precision:2}" formControlName="amount"
+                        class="form-control" id="example-text-input">
+                        <app-errors [controlName]="claimForm.controls['amount']"></app-errors>
+                </div>
+                <div class="mt-2 mb-4" *ngIf="data === null">
+                    <label class="form-label" for="example-file-input">Evidencias <span
+                            class="text-danger text-monospace legend">*</span></label>
+                    <input (change)="onImageSelected($event.target)" formControlName="voucher" class="form-control" [multiple]="true" type="file"
+                        id="example-file-input">
+                </div>
               </div>
-            <div class="mb-4">
-                <label class="form-label" for="example-text-input">Descripción <span
-                        class="text-danger text-monospace legend">*</span></label>
-                <textarea formControlName="description" class="form-control" id="example-text-input" style="height: 150px;"></textarea>
+            <div class="mb-4 col-xl-12 col-xxl-6" *ngIf="data !== null">
+                <div class="mb-3" *ngIf="data !== null">
+                    <label class="form-label" for="example-select">Estatus<span
+                        class="text-danger text-monospace legend"> *</span></label>
+                    <select class="form-select" formControlName="status_id">
+                       <!--  <option value="">-- Seleccione un estatus --</option> -->
+                        <option [value]="status?.id"  *ngFor="let status of statusId">{{status?.name}}</option>
+                        
+                    </select>
+                </div>
+                <div class="mt-2">
+                <label class="form-label" for="example-text-input">Feedback</label>
+                <textarea formControlName="feedback" class="form-control" id="example-text-input" style="height: 150px;"></textarea>
                 <app-errors [controlName]="claimForm.controls['description']"></app-errors>
+             </div>
             </div>
-            <div class="mb-4">
-                <label class="form-label" for="example-text-input">Cantidad a reclamar <span
-                        class="text-danger text-monospace legend">*</span></label>
-                <input placeholder="0.00" type="text" currencyMask [options]="{precision:2}" formControlName="amount"
-                    class="form-control" id="example-text-input">
-                    <app-errors [controlName]="claimForm.controls['amount']"></app-errors>
-            </div>
-            <div class="mb-4">
-                <label class="form-label" for="example-file-input">Evidencias <span
-                        class="text-danger text-monospace legend">*</span></label>
-                <input (change)="onImageSelected($event.target)" formControlName="voucher" class="form-control" [multiple]="true" type="file"
-                    id="example-file-input">
-            </div>
+          
+        </div>
         </form>
     </div>
 
@@ -40,7 +59,7 @@
 </div>
 <div mat-dialog-Acciones class="mat-dialog-actions" align="end">
     <button (click)="closeModal(false)" class="btn btn-danger me-2">Cerrar</button>
-    <button [disabled]="claimForm.invalid" (click)="createClaim()" class="btn btn-success">Reportar</button>
+    <button  [disabled]="claimForm.invalid" (click)="createClaim()" class="btn btn-success">Reportar</button>
 
 
 </div>

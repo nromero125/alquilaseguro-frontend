@@ -16,8 +16,10 @@ export class CreateClaimModalComponent implements OnInit {
   claimForm: FormGroup = new FormGroup({
     description: new FormControl('', Validators.required),
     amount: new FormControl('', Validators.required),
-    voucher: new FormControl('', Validators.required),
-    property_id: new FormControl(null, Validators.required)
+    voucher: new FormControl('', this.data === null? Validators.required: Validators.nullValidator),
+    property_id: new FormControl('',Validators.required),
+    feedback: new FormControl('', this.data !== null? Validators.required : Validators.nullValidator),
+    status_id:  new FormControl('', this.data !== null? Validators.required : Validators.nullValidator)
   })
 
   claimDTO = new FormData();
@@ -36,17 +38,38 @@ export class CreateClaimModalComponent implements OnInit {
 
   ngOnInit(): void {
     this.getProperties()
-  
   }
+
+  statusId = [{
+    id:3,
+    name:'En progreso'},
+  {
+   id:4,
+    name:'Completada'
+  },
+  {
+    id:1,
+    name:'Rechazada'
+  },
+  {
+    id:2,
+    name:'Nueva'
+  }];
 
   getProperties() {
     this._propertiesService.getProperties().subscribe({
       next: (res: any) => {
         this.properties = res
+        if(this.data !== null){
+          this.formInit();
+        this.claimForm.get('property_id')?.disable();
+          this.claimForm.get('description')?.disable();
+          this.claimForm.get('amount')?.disable();
+          this.claimForm.get('voucher')?.disable();
+        }
       },
       error: (err: any) => {
         this._toastService.error('Ocurrio un error tratando de cargar las propiedades de este usuario')
-        console.log(err)
       }
     })
   }
@@ -82,21 +105,60 @@ export class CreateClaimModalComponent implements OnInit {
     }
     this.claimDTO.append('description', this.claimForm.get('description')?.value)
     this.claimDTO.append('amount_to_claim', this.claimForm.get('amount')?.value)
-
     this.claimDTO.append('property_id', this.claimForm.get('property_id')?.value)
 
-    this._claimsService.createClaim(this.claimDTO).subscribe({
-      next: (res: any) => {
-        this.claimDTO = new FormData()
-        this._toastService.success('Reclamación creada satisfactoriamente')
-        this.closeModal(true)
-      },
-      error: (err: any) => {
-        this.claimDTO = new FormData()
-        this._toastService.error('Ocurrio un error tratando de crear esta reclamación')
-        console.log(err)
-      }
+
+    if(this.data === null){
+      this._claimsService.createClaim(this.claimDTO).subscribe({
+        next: (res: any) => {
+          this.claimDTO = new FormData()
+          this._toastService.success('Reclamación creada satisfactoriamente')
+          this.closeModal(true)
+        },
+        error: (err: any) => {
+          this.claimDTO = new FormData()
+          this._toastService.error('Ocurrio un error tratando de crear esta reclamación')
+          console.log(err)
+        }
+      })
+    }else{
+       const claimDTO = {
+        feedback: this.claimForm.get('feedback')?.value,
+        description: this.claimForm.get('description')?.value,
+        _method:'PUT',
+        status: this.claimForm.get('status_id')?.value
+       }
+       this._claimsService.updateClaim(claimDTO, this.data.id).subscribe({
+        next: (res: any) => {
+          this._toastService.success('Reclamación Modificada satisfactoriamente')
+          this.closeModal(true)
+        },
+        error: (err: any) => {
+          this._toastService.error('Ocurrio un error tratando de Modificar esta reclamación')
+          console.log(err)
+        }
+      })
+    }
+
+    
+
+
+
+  }
+
+
+  formInit(){
+   const property_id =  this.properties.find( x => x.id === this.data.property.id);
+   const status_id =  this.statusId.find( x => x.id === this.data.status);
+    this.claimForm.patchValue({
+      description: this.data.description,
+      amount: this.data.amount_to_claim,
+      property_id: property_id.id,
+      voucher: this.data.media,
+      feedback: this.data.feedback,
+      status_id: status_id?.id
     })
+
   }
 
 }

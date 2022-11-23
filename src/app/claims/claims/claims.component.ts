@@ -35,8 +35,10 @@ export class ClaimsComponent implements OnInit {
       })
   }
 
-  openCreationModal() {
-    this._dialog.open(CreateClaimModalComponent).afterClosed().subscribe({
+  openCreationModal(claim: Claims | null) {
+    this._dialog.open(CreateClaimModalComponent,{
+      data:claim
+    }).afterClosed().subscribe({
       next: (res: any) => {
         if (res) {
           this.getClaimsData()
