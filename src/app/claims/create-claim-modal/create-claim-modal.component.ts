@@ -4,6 +4,7 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { ToastrService } from 'ngx-toastr';
 import { AuthService } from 'src/app/auth/services/auth.service';
 import { ClaimsService } from 'src/app/services/claims.service';
+import { PropertiesService } from 'src/app/services/properties.service';
 
 @Component({
   selector: 'app-create-claim-modal',
@@ -15,22 +16,38 @@ export class CreateClaimModalComponent implements OnInit {
   claimForm: FormGroup = new FormGroup({
     description: new FormControl('', Validators.required),
     amount: new FormControl('', Validators.required),
-    voucher: new FormControl('', Validators.required)
+    voucher: new FormControl('', Validators.required),
+    property_id: new FormControl(null, Validators.required)
   })
 
   claimDTO = new FormData();
+  properties: any[] = []
 
   constructor(
     public dialogRef: MatDialogRef<CreateClaimModalComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any,
     private _toastService: ToastrService,
     private _claimsService: ClaimsService,
+    private _propertiesService: PropertiesService,
     private autService: AuthService) {
     dialogRef.disableClose = true
   }
 
 
   ngOnInit(): void {
+    this.getProperties()
+  }
+
+  getProperties() {
+    this._propertiesService.getProperties().subscribe({
+      next: (res: any) => {
+        this.properties = res
+      },
+      error: (err: any) => {
+        this._toastService.error('Ocurrio un error tratando de cargar las propiedades de este usuario')
+        console.log(err)
+      }
+    })
   }
 
   onImageSelected(images: any) {
@@ -65,7 +82,7 @@ export class CreateClaimModalComponent implements OnInit {
     this.claimDTO.append('description', this.claimForm.get('description')?.value)
     this.claimDTO.append('amount_to_claim', this.claimForm.get('amount')?.value)
 
-    this.claimDTO.append('property_id', '1')
+    this.claimDTO.append('property_id', this.claimForm.get('property_id')?.value)
 
     this._claimsService.createClaim(this.claimDTO).subscribe({
       next: (res: any) => {
@@ -75,7 +92,7 @@ export class CreateClaimModalComponent implements OnInit {
       },
       error: (err: any) => {
         this.claimDTO = new FormData()
-        this._toastService.error('Ocurrio un error tratando crear esta reclamación')
+        this._toastService.error('Ocurrio un error tratando de crear esta reclamación')
         console.log(err)
       }
     })
