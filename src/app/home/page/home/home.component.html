@@ -1,4 +1,4 @@
-<div class="row" *ngIf="count">
+<div class="row" *ngIf="count else notCount">
     <div class="col-sm-12 col-md-4" *ngIf="count?.count_claims!== undefined">
       <div class="block block-rounded">
         <div class="block-content block-content-full">
@@ -66,3 +66,11 @@
       </div>
   </div>
 
+<ng-template #notCount >
+  <div class="d-flex justify-content-center align-items-center" style="height: 80vh;">
+    <div class="text-center">
+      <img src="assets/media/svg/no-data.svg" alt="" width="200px">
+      <h4 class="text-muted mt-4">No Tiene Data</h4>
+    </div>
+  </div>
+</ng-template>
