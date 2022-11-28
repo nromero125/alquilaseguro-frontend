@@ -1,7 +1,8 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
-import { catchError, map, retry, tap } from 'rxjs/operators';
+import { NavigationEnd, Router } from '@angular/router';
+import { Observable, of, Subscription } from 'rxjs';
+import { catchError, filter, map, retry, tap } from 'rxjs/operators';
 import { UpdatePassword } from 'src/app/interfaces/updatePassword-interfaces';
 import { environment } from 'src/environments/environment';
 import { AuthResponce, resetPasswordModel, UserAuth } from '../interfaces/interfaces';
@@ -14,12 +15,12 @@ export class AuthService {
   private baseUrl: string = environment.baseUrl;
   private _user!: any;
   private _userProperty!: any;
-
   get user() {
     return { ...this._user };
   }
-
-  constructor(private http: HttpClient) { }
+ 
+  constructor(private http: HttpClient,
+              private router: Router ) { }
 
   login(email: string, password: string) {
 
@@ -42,7 +43,6 @@ export class AuthService {
 
 
   tokenValidation(): Observable<boolean> {
-
     const url: string = `${this.baseUrl}/user`;
     const headers = new HttpHeaders()
       .set('Authorization', `Bearer ${localStorage.getItem('token') || ''}`);
@@ -52,6 +52,7 @@ export class AuthService {
         map(resp => {
           this._user = resp
           document.getElementById('page-container')?.classList.add('sidebar-o')
+
           return true
         }),
         catchError(err => of(false))
@@ -73,5 +74,6 @@ export class AuthService {
   updatePassword(updateModel: UpdatePassword){
     return this.http.post(`${this.baseUrl}/auth/update-password`, updateModel)
   }
+
 
 }
