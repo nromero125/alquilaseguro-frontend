@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  baseUrl: 'https://alquilaseguro.vidamed.com.do/api'
+  baseUrl: 'https://alquila.vidamed.com.do/api'
 };

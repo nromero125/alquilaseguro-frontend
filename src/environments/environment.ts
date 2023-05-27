@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  baseUrl: 'https://alquilaseguro.vidamed.com.do/api',
+  baseUrl: 'https://alquila.vidamed.com.do/api',
 };
 
 /*
